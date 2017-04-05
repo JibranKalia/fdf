@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/03/29 17:32:38 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/04/04 18:11:09 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LDFLAGS			:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
 LIBFT			:= libft/libft.a
 LIBMLX			:= libmlx/libmlx.a
 
-FILES			:= random \
+FILES			:= main \
 
 SRC				:= $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJ				:= $(SRC:.c=.o)

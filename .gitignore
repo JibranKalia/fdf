@@ -43,6 +43,7 @@
 *.o
 *.a
 *.out
+fdf
 
 # OS generated files #
 ###################

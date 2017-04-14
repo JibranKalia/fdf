@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/13 19:07:47 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/14 11:41:30 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,31 @@
 # include <mlx.h>
 # include <libft.h>
 
-typedef struct	s_win
-{
-	void		*id;
-	int			x;
-	int			y;
-}				t_win;
 
-typedef struct	s_img
+typedef	struct	s_vector
 {
-	void		*id;
-	int			x;
-	int			y;
-}				t_img;
+	double		x;
+	double		y;
+	double		z;
+	int8_t		r;
+	int8_t		g;
+	int8_t		b;
+}				t_vector;
+
+typedef struct	s_arr
+{
+	void		*ptr;
+	size_t		len;
+	size_t		cap;
+	size_t		sze;
+}				t_arr;
 
 typedef struct	s_env
 {
 	void		*mlx;
-	t_win		*win;
-	t_img		*img;
+	void		*win;
+	void		*img;
+	t_arr		*map;
 }				t_env;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/12 12:19:17 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/13 19:12:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ int		main(void)
 {
 	t_env	env;
 
+	env.win = (t_win *)malloc(sizeof(t_win) * 1);
+	env.img = (t_img *)malloc(sizeof(t_img) * 1);
+
 	env.mlx = mlx_init();
-	env.win = mlx_new_window(env.mlx, W_WIDTH, W_HEIGHT, "FDF");
-	env.img = mlx_new_image(env.mlx, W_WIDTH, W_HEIGHT);
-	mlx_key_hook(env.win, key_hooks, &env);
+	env.win->id = mlx_new_window(env.mlx, W_WIDTH, W_HEIGHT, "FDF");
+	env.img->id = mlx_new_image(env.mlx, W_WIDTH, W_HEIGHT);
+	mlx_key_hook(env.win->id , key_hooks, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }

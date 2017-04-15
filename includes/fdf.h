@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/14 11:41:30 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/14 18:29:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <libft.h>
 
 
-typedef	struct	s_vector
+typedef struct	s_vector
 {
 	double		x;
 	double		y;
@@ -32,7 +32,7 @@ typedef	struct	s_vector
 
 typedef struct	s_arr
 {
-	void		*ptr;
+	void		*elm;
 	size_t		len;
 	size_t		cap;
 	size_t		sze;

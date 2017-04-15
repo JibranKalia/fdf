@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/15 11:51:51 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 12:02:17 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ int		main(int ac, char	**av)
 	int		fd;
 
 	CHK1(ac != 2, ft_printf("%{red}Usage : %s <filename> [ case_size z_size ]%{eoc}", av[0]), -1);
-	CHK((fd = open(av[1], O_RDONLY)) == -1, ft_perror("Open Failed"));
+	if ((fd = open(av[1], O_RDONLY)) == -1)
+		ft_perror("Open Failed");
+	env = ft_memalloc(sizeof(t_env) * 1);
+	fdf_reader(env, fd);
 
 	/**
 	env = ft_memalloc(sizeof(t_env) * 1);
@@ -56,5 +59,6 @@ int		main(int ac, char	**av)
 	mlx_key_hook(env->win->id , key_hooks, &env);
 	mlx_loop(env->mlx);
 	**/
+
 	return (0);
 }

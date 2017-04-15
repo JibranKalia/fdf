@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/15 11:53:08 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 12:51:58 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define W_HEIGHT 900
 
 # include <stdlib.h>
+# include <fcntl.h>
 # include <mlx.h>
 # include <libft.h>
 
@@ -37,5 +38,8 @@ typedef struct	s_env
 	int			h;
 	int			w;
 }				t_env;
+
+int		fdf_reader(t_env *env, int fd);
+void	ft_perror(const char *s);
 
 #endif

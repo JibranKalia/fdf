@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/14 10:34:22 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 11:51:51 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,22 @@ int		key_hooks(int keycode, t_env *env)
 	return (0);
 }
 
-t_env	*start(void)
-{
-	t_env	*env;
-	
-	env = (t_env *)ft_memalloc(sizeof(t_env) * 1);
-	env->win = (t_win *)ft_memalloc(sizeof(t_win) * 1);
-	env->img = (t_img *)ft_memalloc(sizeof(t_img) * 1);
-	env->mlx = mlx_init();
-	env->win->id = mlx_new_window(env->mlx, W_WIDTH, W_HEIGHT, "FDF");
-	env->img->id = mlx_new_image(env->mlx, W_WIDTH, W_HEIGHT);
-	return (env);
-}
-
 int		main(int ac, char	**av)
 {
 	t_env	*env;
+	int		fd;
 
-	CHK1(ac != 2, printf("Usage : %s <filename> [ case_size z_size ]", av[0]), -1);
+	CHK1(ac != 2, ft_printf("%{red}Usage : %s <filename> [ case_size z_size ]%{eoc}", av[0]), -1);
+	CHK((fd = open(av[1], O_RDONLY)) == -1, ft_perror("Open Failed"));
 
-	env = start();
+	/**
+	env = ft_memalloc(sizeof(t_env) * 1);
+	env->mlx = mlx_init();
+	env->win->id = mlx_new_window(env->mlx, W_WIDTH, W_HEIGHT, "FDF");
+	env->img->id = mlx_new_image(env->mlx, W_WIDTH, W_HEIGHT);
 
 	mlx_key_hook(env->win->id , key_hooks, &env);
 	mlx_loop(env->mlx);
+	**/
 	return (0);
 }

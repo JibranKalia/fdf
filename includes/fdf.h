@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/14 18:29:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 11:53:08 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,22 @@
 # include <libft.h>
 
 
-typedef struct	s_vector
+typedef struct	s_point
 {
 	double		x;
 	double		y;
 	double		z;
-	int8_t		r;
-	int8_t		g;
-	int8_t		b;
-}				t_vector;
-
-typedef struct	s_arr
-{
-	void		*elm;
-	size_t		len;
-	size_t		cap;
-	size_t		sze;
-}				t_arr;
+	int			color;
+}				t_point;
 
 typedef struct	s_env
 {
 	void		*mlx;
 	void		*win;
 	void		*img;
-	t_arr		*map;
+	t_point		**map;
+	int			h;
+	int			w;
 }				t_env;
 
 #endif

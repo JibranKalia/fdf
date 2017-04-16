@@ -6,26 +6,23 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/04/15 22:57:04 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/04/15 23:30:52 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:= fdf
+NAME		:= fdf
+CC		:= gcc
+CFLAGS		+= -Wall -Wextra -Werror
+CFLAGS		+= -I includes/ -I libft/includes/ -I libmlx
+LDFLAGS		:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
 
-CC				:= gcc
+LIBFT		:= libft/libft.a
+LIBMLX		:= libmlx/libmlx.a
 
-CFLAGS			+= -Wall -Wextra -Werror
-CFLAGS			+= -I includes/ -I libft/includes/ -I libmlx/
+FILES		:= fdf_main fdf_reader\
 
-LDFLAGS			:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
-
-LIBFT			:= libft/libft.a
-LIBMLX			:= libmlx/libmlx.a
-
-FILES			:= fdf_main fdf_reader\
-
-SRC				:= $(addprefix src/, $(addsuffix .c, $(FILES)))
-OBJ				:= $(SRC:.c=.o)
+SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
+OBJ		:= $(SRC:.c=.o)
 
 .PHONY = all clean fclean clean re
 

@@ -65,3 +65,7 @@ Thumbs.db
 ###################
 .idea/
 cmake-build-debug/
+
+# Atom Configuration Files #
+###################
+.clang_complete

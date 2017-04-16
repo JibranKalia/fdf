@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reader.c                                           :+:      :+:    :+:   */
+/*   fdf_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/15 12:48:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 17:06:56 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
+static int	set_color(char *src, int *dst)
+{
+	(void)dst;
+	if (ft_strnstr(src, "0x", 2) != NULL)
+		src += 2;
+	printf("Src = %s\n", src);
+	return (0);
+}
+
 static int	read_point(char **src, t_env *env)
 {
+	char	*tmp;
 	int		x;
 	int		y;
 	int		z;
@@ -27,11 +37,13 @@ static int	read_point(char **src, t_env *env)
 		x = 0;
 		while (x < env->w)
 		{
+			printf("%s\n", src[i]);
 			env->map[y][x].x = (double)x;
 			env->map[y][x].y = (double)y;
-			//env->map[y][x].z = (double)ft_atoi(src);
+			env->map[y][x].z = (double)ft_atoi(src[i]);
 			z = (double)ft_atoi(src[i]);
-			printf("%s\n", src[i]);
+			if ((tmp = (strchr(src[i], ','))))
+				set_color(src[i], &env->map[y][x].color);
 			printf("x = %d\n", x);
 			printf("y = %d\n", y);
 			printf("z = %d\n", z);
@@ -50,10 +62,12 @@ static int	map_malloc(char *src, t_env *env)
 	t_point		**map;
 
 	i = 0;
+	printf("Height = %d\n", env->h);
+	printf("Width= %d\n", env->w);
 	CHK1((map = ft_memalloc(sizeof(t_point*) * env->h)) == 0, ft_perror("Malloc Fail"), -1);
 	while (i < env->h)
 	{
-		CHK1((map[i] = ft_memalloc(sizeof(t_point*) * env->w)) == 0, ft_perror("Malloc Fail"), -1);
+		CHK1((map[i] = ft_memalloc(sizeof(t_point) * env->w)) == 0, ft_perror("Malloc Fail"), -1);
 		++i;
 	}
 	env->map = map;

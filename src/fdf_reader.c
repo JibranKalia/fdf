@@ -6,72 +6,47 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/15 17:06:56 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/15 20:17:57 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+#define INDEX(x, y, w) ((y * w) + x)
 
-static int	set_color(char *src, int *dst)
-{
-	(void)dst;
-	if (ft_strnstr(src, "0x", 2) != NULL)
-		src += 2;
-	printf("Src = %s\n", src);
-	return (0);
-}
+/**
+i = Hy + x;
+x = i - Hy;
+y = i/H
+**/
 
-static int	read_point(char **src, t_env *env)
+static int	read_point(char *src, t_env *env)
 {
-	char	*tmp;
+	char	**tmp;
 	int		x;
 	int		y;
 	int		z;
-	int		i;
+	
+	max_idx = env->h * env->w;
+	CHK1((env->map = ft_memalloc(sizeof(t_point) * env->h * env->w + 1)) == 0, ft_perror("Malloc Fail"), -1);
+	tmp = ft_strsplit(src, ' ')
 
 	y = 0;
 	z = 0;
 	i = 0;
-	while (y < env->h)
+	while (tmp[i])
 	{
-		x = 0;
-		while (x < env->w)
-		{
-			printf("%s\n", src[i]);
-			env->map[y][x].x = (double)x;
-			env->map[y][x].y = (double)y;
-			env->map[y][x].z = (double)ft_atoi(src[i]);
-			z = (double)ft_atoi(src[i]);
-			if ((tmp = (strchr(src[i], ','))))
-				set_color(src[i], &env->map[y][x].color);
-			printf("x = %d\n", x);
-			printf("y = %d\n", y);
-			printf("z = %d\n", z);
-			printf("---------\n");
-			++x;
-			++i;
-		}
-		++y;
-	}
-	return (0);
-}
-
-static int	map_malloc(char *src, t_env *env)
-{
-	int			i;
-	t_point		**map;
-
-	i = 0;
-	printf("Height = %d\n", env->h);
-	printf("Width= %d\n", env->w);
-	CHK1((map = ft_memalloc(sizeof(t_point*) * env->h)) == 0, ft_perror("Malloc Fail"), -1);
-	while (i < env->h)
-	{
-		CHK1((map[i] = ft_memalloc(sizeof(t_point) * env->w)) == 0, ft_perror("Malloc Fail"), -1);
+		y = i / env->w;
+		x = i - (env->w * x);
+		env->map[i].x = (double)x;
+		env->map[i].y = (double)y;
+		env->map[i].z = (double)ft_atoi(tmp[i]);
+		z = (double)ft_atoi(tmp[i]);
+		printf("x = %d\n", x);
+		printf("y = %d\n", y);
+		printf("z = %d\n", z);
+		printf("---------\n");
 		++i;
 	}
-	env->map = map;
-	read_point(ft_strsplit(src, ' '), env);
 	return (0);
 }
 
@@ -113,6 +88,6 @@ int			fdf_reader(t_env *env, int fd)
 		free(line);
 	}
 	env->h = count;
-	map_malloc(ret, env);
+	read_point(ret, env);
 	return (0);
 }

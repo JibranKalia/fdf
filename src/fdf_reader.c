@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/15 20:17:57 by                  ###   ########.fr       */
+/*   Updated: 2017/04/15 20:38:54 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,28 @@
 #define INDEX(x, y, w) ((y * w) + x)
 
 /**
-i = Hy + x;
-x = i - Hy;
-y = i/H
+ * i = Wx + y
+ * y = i/W
+ * x = i - Wy
 **/
 
 static int	read_point(char *src, t_env *env)
 {
 	char	**tmp;
-	int		x;
-	int		y;
-	int		z;
+	int	i;
+	int	x;
+	int	y;
 	
-	max_idx = env->h * env->w;
 	CHK1((env->map = ft_memalloc(sizeof(t_point) * env->h * env->w + 1)) == 0, ft_perror("Malloc Fail"), -1);
-	tmp = ft_strsplit(src, ' ')
-
-	y = 0;
-	z = 0;
+	tmp = ft_strsplit(src, ' ');
 	i = 0;
 	while (tmp[i])
 	{
 		y = i / env->w;
-		x = i - (env->w * x);
-		env->map[i].x = (double)x;
-		env->map[i].y = (double)y;
+		x = i - (env->w * y);
+		env->map[i].x = (double)x + 1;
+		env->map[i].y = (double)y + 1;
 		env->map[i].z = (double)ft_atoi(tmp[i]);
-		z = (double)ft_atoi(tmp[i]);
-		printf("x = %d\n", x);
-		printf("y = %d\n", y);
-		printf("z = %d\n", z);
-		printf("---------\n");
 		++i;
 	}
 	return (0);

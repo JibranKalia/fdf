@@ -35,6 +35,7 @@ void		set_pixel(t_env *env, int x, int y)
 {
 	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_WIDTH)
 		return;
+	// Is COLOR1 defined?
 	env->img_data[x + y * env->ln] = COLOR1;
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
@@ -51,6 +52,7 @@ static int	key_hooks(int keycode, t_env *env)
 	return (0);
 }
 
+// pretty sure this function is wrong
 void		draw(t_env *env)
 {
 	int	x;
@@ -66,7 +68,25 @@ void		draw(t_env *env)
 		++i;
 	}
 }
-
+/*
+void	draw(t_env *env)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (i < 100)
+	{
+		j = 0;
+		while (j < 100)
+		{
+			set_pixel(env, x, y);
+			++j;
+		}
+		++i;
+	}
+}
+*/
 static int	init_env(t_env *env)
 {
 	CHK1(!(env->mlx = mlx_init()), ft_perror("ERROR: mlx_init"), -1);

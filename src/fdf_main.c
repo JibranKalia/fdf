@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/16 15:49:42 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/04/17 13:04:42 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,13 @@ void	ft_perror(const char *s)
 	exit(EXIT_FAILURE);
 }
 
-void		set_pixel(t_env *env, int x, int y)
-{
-	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_WIDTH)
-		return;
-	env->img_data[x + y * env->ln] = COLOR1;
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-}
 
 static int	key_hooks(int keycode, t_env *env)
 {
 	if (keycode == ESC)
 	{
-		mlx_destroy_image(env->mlx, env->img);
-		mlx_destroy_window(env->mlx, env->win);
+		//mlx_destroy_window(env->mlx, env->win);
+		//mlx_destroy_image(env->mlx, env->img);
 		exit(EXIT_SUCCESS);
 	}
 	(void)env;
@@ -53,18 +46,7 @@ static int	key_hooks(int keycode, t_env *env)
 
 void		draw(t_env *env)
 {
-	int	x;
-	int	y;
-	int	i;
-
-	i = 100;
-	x = 100;
-	y = 100;
-	while (i < 800)
-	{
-		set_pixel(env, x, y);
-		++i;
-	}
+	drawline(5, 5, 300, 300, env);
 }
 
 static int	init_env(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/17 13:06:33 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/17 13:11:13 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ typedef struct	s_env
 int		fdf_reader(t_env *env, int fd);
 void	ft_perror(const char *s);
 void	drawline(int x0, int y0, int x1, int y1, t_env *env);
+void	set_pixel(t_env *env, int x, int y);
 
 #endif

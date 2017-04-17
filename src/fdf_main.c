@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/17 13:04:42 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/17 13:11:38 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_perror(const char *s)
 	exit(EXIT_FAILURE);
 }
 
-
 static int	key_hooks(int keycode, t_env *env)
 {
 	if (keycode == ESC)
@@ -44,9 +43,22 @@ static int	key_hooks(int keycode, t_env *env)
 	return (0);
 }
 
-void		draw(t_env *env)
+void	draw(t_env *env)
 {
-	drawline(5, 5, 300, 300, env);
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (i < 100)
+	{
+		j = 0;
+		while (j < 100)
+		{
+			set_pixel(env, i, j);
+			++j;
+		}
+		++i;
+	}
 }
 
 static int	init_env(t_env *env)

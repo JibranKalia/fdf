@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/18 22:55:39 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/18 23:02:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	draw(t_env *env)
 	set_pixel(790, 790, env);
 	set_pixel(790, 10, env);
 	set_pixel(10, 790, env);
-	drawline(790, 10, 10, 790, env);
+	drawline(790, 10, 10, 300, env);
 
 }
 

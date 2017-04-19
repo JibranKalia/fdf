@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/17 13:11:38 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/04/18 22:55:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,13 @@ static int	key_hooks(int keycode, t_env *env)
 
 void	draw(t_env *env)
 {
-	int	i;
-	int	j;
-	
-	i = 0;
-	while (i < 100)
-	{
-		j = 0;
-		while (j < 100)
-		{
-			set_pixel(env, i, j);
-			++j;
-		}
-		++i;
-	}
+	set_pixel(10, 10, env);
+	set_pixel(400, 400, env);
+	set_pixel(790, 790, env);
+	set_pixel(790, 10, env);
+	set_pixel(10, 790, env);
+	drawline(790, 10, 10, 790, env);
+
 }
 
 static int	init_env(t_env *env)
@@ -66,8 +59,10 @@ static int	init_env(t_env *env)
 	CHK1(!(env->mlx = mlx_init()), ft_perror("ERROR: mlx_init"), -1);
 	CHK1(!(env->win = mlx_new_window(env->mlx, WIN_WIDTH, WIN_HEIGHT, "42")), ft_perror("ERROR: mlx_new_window"), -1);
 	CHK1(!(env->img = mlx_new_image(env->mlx, WIN_WIDTH, WIN_HEIGHT)), ft_perror("ERROR: mlx_new_image"), -1);
-	env->img_data = (int *)mlx_get_data_addr(env->img, &env->bpp, &env->ln, &env->bpp);
-	env->ln /= 4;
+	env->img_data = (int *)mlx_get_data_addr(env->img, &(env->bpp), &(env->ln), &(env->ed));
+	printf("BPP = %d\n", env->bpp);
+	printf("Ln = %d\n", env->ln);
+	printf("Endian = %d\n", env->ed);
 	CHK1(env->img == 0, ft_perror("ERROR: img"), -1);
 	return (0);
 }

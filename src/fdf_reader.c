@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/04/16 15:51:25 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/05/08 14:29:28 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static int	read_point(char *src, t_env *env)
 	int	x;
 	int	y;
 
-	CHK1((env->map = ft_memalloc(sizeof(t_point) * env->h * env->w + 1)) == 0, ft_perror("Malloc Fail"), -1);
+	env->map = ft_memalloc(sizeof(t_point) * env->h * env->w + 1);
+	MEMCHECK(env->map);
 	tmp = ft_strsplit(src, ' ');
 	i = 0;
 	while (tmp[i])

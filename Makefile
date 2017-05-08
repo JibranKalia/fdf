@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/04/17 12:46:26 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/08 15:13:33 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,22 +36,20 @@ $(LIBMLX):
 	
 $(OBJ): %.o: %.c
 	@$(CC) -c $(CFLAGS) $< -o $@
-	@echo "\033[32mCompiled Project Object Files\033[0m"
 
 
 $(NAME): $(LIBMLX) $(LIBFT) $(OBJ)
 	@$(CC) $(LDFLAGS) -o $@ $^
-	@echo "\033[32mCreated Executable\033[0m"
+	@echo "\033[32mCreated FDF\033[0m"
 
 clean:
 	@make -C libmlx clean
 	@make -C libft clean
 	@rm -rf $(OBJ)
-	@echo "\033[32mRemoved Object Files\033[0m"
 
 fclean: clean
 	@make -C libft fclean
 	@rm -rf $(NAME)
-	@echo "\033[32mRemoved Executable\033[0m"
+	@echo "\033[32mRemoved FDF\033[0m"
 
 re: fclean all

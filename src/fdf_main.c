@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/08 14:27:49 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 14:07:26 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,16 @@ static int	key_hooks(int keycode, t_env *env)
 
 void	draw(t_env *env)
 {
-	set_pixel(10, 10, env);
-	drawline(10, 10, 790, 790, env);
-	drawline(400, 10, 400, 790, env);
-	drawline(10, 400, 790, 400, env);
-	set_pixel(400, 400, env);
-	set_pixel(790, 790, env);
-	set_pixel(790, 10, env);
-	set_pixel(10, 790, env);
-	drawline(790, 10, 10, 790, env);
+	(void)env;
+//	set_pixel(10, 10, env);
+//	drawline(10, 10, 790, 790, env);
+//	drawline(400, 10, 400, 790, env);
+//	drawline(10, 400, 790, 400, env);
+//	set_pixel(400, 400, env);
+//	set_pixel(790, 790, env);
+//	set_pixel(790, 10, env);
+//	set_pixel(10, 790, env);
+//	drawline(790, 10, 10, 790, env);
 
 }
 

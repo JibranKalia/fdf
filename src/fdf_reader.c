@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/08 14:29:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 14:02:37 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,37 @@
  * x = i - Wy
 **/
 
+void		map_clean(void *elm)
+{
+	ft_bzero(elm, sizeof(t_point));
+}
+
 static int	read_point(char *src, t_env *env)
 {
-	char	**tmp;
+	char		**tmp;
+	t_point		*in;
 	int	i;
 	int	x;
 	int	y;
 
-	env->map = ft_memalloc(sizeof(t_point) * env->h * env->w + 1);
+	env->map = arr_create(sizeof(t_point), env->h * env->w);
 	MEMCHECK(env->map);
+	env->map->del = map_clean;
 	tmp = ft_strsplit(src, ' ');
 	i = 0;
 	while (tmp[i])
 	{
+		in = ft_memalloc(sizeof(t_point));
+		MEMCHECK(in);
 		y = i / env->w;
 		x = i - (env->w * y);
-		env->map[i].x = (double)x + 1;
-		env->map[i].y = (double)y + 1;
-		env->map[i].z = (double)ft_atoi(tmp[i]);
+		in->x = (double)x + 1;
+		in->y = (double)y + 1;
+		in->z = (double)ft_atoi(tmp[i]);
+		arr_push(env->map, in);
 		++i;
 	}
 	return (0);
-}
-
-static int	count_width(char **str)
-{
-	int		i;
-
-	i = 0;
-	while(str[i])
-		i++;
-	return (i);
 }
 
 int			fdf_reader(t_env *env, int fd)
@@ -59,23 +59,21 @@ int			fdf_reader(t_env *env, int fd)
 	int		count;
 	int		b;
 
-	(void)env;
 	count = 0;
-	while((b = get_next_line(fd, &line)))
+	while ((b = get_next_line(fd, &line)))
 	{
-		CHK1(b == -1, ft_perror("Read Failed"), -1);
+		CHECK(b == -1, RETURN(-1), "Read Failed");
 		if (count == 0)
 		{
 			ret = ft_strdup(line);
-			env->w = count_width(ft_strsplit(ret, ' '));
+			env->w = ft_countwords(ret, ' ');
 		}
 		else
 		{
 			ret = ft_strjoin(ret, " ");
 			ret = ft_strjoin(ret, line);
 		}
-		if ((count_width(ft_strsplit(line, ' ')) != env->w))
-				ft_perror("Error in FDF file");
+		CHECK(ft_countwords(line, ' ') != env->w, RETURN(-1), "Error in FDF file");
 		++count;
 		free(line);
 	}

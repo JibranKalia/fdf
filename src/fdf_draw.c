@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 12:46:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 14:06:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 16:15:24 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,38 @@ void		drawline(int x0, int y0, int x1, int y1, t_env *env)
 			err += dx;
 			y0 += incy;
 		} /* e_xy+e_y < 0 */
+	}
+}
+
+void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
+{
+	int		dx;
+	int		dy;
+	int		incx;
+	int		incy;
+	int		err;
+	int		e2;
+
+	dx = fabs(p1.x - p0.x);
+	dy = -fabs(p1.y - p0.y);
+	err = dx + dy;
+	incx = (p0.x < p1.x) ? 1 : -1;
+	incy = (p0.y < p1.y) ? 1 : -1;
+	while (1)
+	{
+		set_pixel(p0.x, p0.y, env);
+		if (p0.x == p1.x && p0.y == p1.y)
+			break;
+		e2 = 2 * err;
+		if (e2 >= dy)
+		{
+			err += dy;
+			p0.x += incx;
+		}
+		if (e2 <= dx)
+		{
+			err += dx;
+			p0.y += incy;
+		}
 	}
 }

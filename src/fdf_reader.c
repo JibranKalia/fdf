@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 14:56:05 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 15:55:56 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void		map_clean(void *elm)
 }
 
 
-//void		file_clean(void *elm)
-//{
-//	free(elm);
-//}
+void		file_clean(void *elm)
+{
+	(void)elm;
+}
 
 //static int	check_point(t_env *env)
 //{
@@ -55,7 +55,7 @@ static int	read_point(t_arr *src, t_env *env)
 	int			i;
 	int			j;
 
-	env->map = arr_create(sizeof(t_point), env->h * env->w);
+	env->map = arr_create(sizeof(t_point), env->map_h * env->map_w);
 	MEMCHECK(env->map);
 	env->map->del = map_clean;
 	tmp = (char **)src->contents;
@@ -89,7 +89,7 @@ int			fdf_reader(t_env *env, int fd)
 
 	file = arr_create(sizeof(char*), 100);
 	MEMCHECK(file);
-//	file->del = file_clean;
+	file->del = file_clean;
 	count = 0;
 	while ((b = get_next_line(fd, &line)))
 	{
@@ -97,15 +97,15 @@ int			fdf_reader(t_env *env, int fd)
 		if (count == 0)
 		{
 			arr_push(file, ft_strdup(line));
-			env->w = ft_countwords(line, ' ');
+			env->map_w = ft_countwords(line, ' ');
 		}
 		else
 			arr_push(file, ft_strdup(line));
-		CHECK(ft_countwords(line, ' ') != env->w, RETURN(-1), "Error in FDF file");
+		CHECK(ft_countwords(line, ' ') != env->map_w, RETURN(-1), "Error in FDF file");
 		++count;
 		free(line);
 	}
-	env->h = count;
+	env->map_h = count;
 	read_point(file, env);
 //	check_point(env);
 	arr_del(file);

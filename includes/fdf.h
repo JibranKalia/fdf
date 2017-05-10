@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 16:08:53 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 18:09:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 # include <mlx.h>
 # include <math.h>
 # include <libft.h>
+
+typedef struct	s_ixyz
+{
+	int			x;
+	int			y;
+	int			z;
+}				t_ixyz;
 
 typedef struct	s_point
 {
@@ -53,7 +60,7 @@ typedef struct	s_env
 	int			win_w;
 	int			win_h;
 	t_arr		*map;
-	t_point		center;
+	t_ixyz		center;
 }				t_env;
 
 int				fdf_reader(t_env *env, int fd);

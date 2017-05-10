@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 12:46:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 16:15:24 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 18:00:31 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 #define XCHECK(x) ((x) < 0 || (x) >= WIN_WIDTH)
 #define YCHECK(y) ((y) < 0 || (y) >= WIN_HEIGHT)
 
-
-void	swapi(int *x, int *y)
-{
-	int		tmp;
-
-	tmp = *y;
-	*y = *x;
-	*x = tmp;
-}
-
 void		set_pixel(int x, int y, t_env *env)
 {
 	if (XCHECK(x) || YCHECK(y))
 		return ;
 	env->img_data[(x + y * WIN_WIDTH)] = COLOR1;
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+}
+
+void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
+{
+	drawline((int)p0.x, (int)p0.y, (int)p1.x, (int)p1.y, env);
 }
 
 void		drawline(int x0, int y0, int x1, int y1, t_env *env)
@@ -65,6 +60,7 @@ void		drawline(int x0, int y0, int x1, int y1, t_env *env)
 	}
 }
 
+/**
 void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
 {
 	int		dx;
@@ -97,3 +93,4 @@ void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
 		}
 	}
 }
+**/

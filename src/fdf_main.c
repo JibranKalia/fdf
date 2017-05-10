@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 16:19:06 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 18:08:25 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #define LEFT		123
 #define PAGE_UP		116
 #define PAGE_DOWN	121
+#define INDEX(x, y) ((y * env->map_w) + x)
 
 void	ft_perror(const char *s)
 {
@@ -46,11 +47,11 @@ static int	key_hooks(int keycode, t_env *env)
 void		scale(t_env *env)
 {
 	t_point		**tmp;
-	int			i;
+	int				i;
 
 	i = 0;
 	tmp = (t_point **)env->map->contents;
-	while(i < env->map->end)
+	while (i < env->map->end)
 	{
 		tmp[i]->x *= ((env->win_h / env->map_h) / 2);
 		tmp[i]->y *= ((env->win_h / env->map_h) / 2);
@@ -63,28 +64,25 @@ void		centerfind(t_env *env)
 {
 	t_point		**tmp;
 	int			i;
-	double		sumx;
-	double		sumy;
-	double		sumz;
+	int			sumx;
+	int			sumy;
+	int			sumz;
 
 	i = 0;
 	sumx = 0;
 	sumy = 0;
 	sumz = 0;
 	tmp = (t_point **)env->map->contents;
-	while(i < env->map->end)
+	while (i < env->map->end)
 	{
 		sumx += tmp[i]->x;
 		sumy += tmp[i]->y;
 		sumz += tmp[i]->z;
 		++i;
 	}
-	env->center.x = sumx / (double)i;
-	env->center.y = sumy / (double)i;
-	env->center.z = sumz / (double)i;
-	DEBUG("CENTER X = %f\n", env->center.x);
-	DEBUG("CENTER Y = %f\n", env->center.y);
-	DEBUG("CENTER Z = %f\n", env->center.z);
+	env->center.x = sumx / i;
+	env->center.y = sumy / i;
+	env->center.z = sumz / i;
 }
 
 void		xrotation(t_env *env, float rad)
@@ -107,42 +105,35 @@ void		xrotation(t_env *env, float rad)
 	}
 }
 
-void	addpixels(t_env *env)
+/**
+ * i = Wx + y
+ * y = i/W
+ * x = i - Wy
+**/
+
+void		draw_all(t_env *env)
 {
-	int				i;
+	int				x;
+	int				y;
 	t_point			**tmp;
 
-	i = 0;
+	x = 0;
+	y = 0;
 	tmp = (t_point **)env->map->contents;
-	while (i < env->map->end - 1)
+	while (y < env->map_h)
 	{
-		drawline(tmp[i]->x, tmp[i]->y, tmp[i + 1]->x, tmp[i + 1]->y, env);
-		//ft_3d_draw(*tmp[i], *tmp[i + 1], env);
-		++i;
+		//if (x < env->map_w - 1)
+		//	ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x + 1, y)], env);
+		if (y < env->map_h - 1)
+			ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x, y + 1)], env);
+		if (x == env->map_w - 1)
+		{
+			y++;
+			x = 0;
+		}
+		else
+			x++;
 	}
-}
-
-
-void	draw(t_env *env)
-{
-	t_point		p0;
-	t_point		p1;
-
-	p0.x = 10;
-	p0.y = 10;
-	p1.x = 790;
-	p1.y = 790;
-//	set_pixel(10, 10, env);
-	//drawline(10, 10, 790, 790, env);
-	ft_3d_draw(p0, p1, env);
-//	drawline(400, 10, 400, 790, env);
-//	drawline(10, 400, 790, 400, env);
-//	set_pixel(400, 400, env);
-//	set_pixel(790, 790, env);
-//	set_pixel(790, 10, env);
-//	set_pixel(10, 790, env);
-//	drawline(790, 10, 10, 790, env);
-
 }
 
 static int	init_env(t_env *env)
@@ -160,7 +151,7 @@ static int	init_env(t_env *env)
 	return (0);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_env	*env;
 	int		fd;
@@ -174,8 +165,9 @@ int		main(int ac, char **av)
 	fdf_reader(env, fd);
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	scale(env);
+	centerfind(env);
 	xrotation(env, -.2);
-	addpixels(env);
+	draw_all(env);
 	mlx_key_hook(env->win, key_hooks, &env);
 	mlx_loop(env->mlx);
 	return (0);

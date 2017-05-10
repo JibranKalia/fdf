@@ -6,12 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 15:55:56 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/09 18:09:48 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-#define INDEX(x, y, w) ((y * w) + x)
+
 
 /**
  * i = Wx + y
@@ -24,28 +24,28 @@ void		map_clean(void *elm)
 	ft_bzero(elm, sizeof(t_point));
 }
 
-
 void		file_clean(void *elm)
 {
 	(void)elm;
 }
 
-//static int	check_point(t_env *env)
-//{
-//	t_point	**tmp;
-//	int		i;
-//
-//	i = 0;
-//	tmp = (t_point **)env->map->contents;
-//	while (i < env->map->end)
-//	{
-//		printf("x = %.0f\n", tmp[i]->x);
-//		printf("y = %.0f\n", tmp[i]->y);
-//		printf("z = %.0f\n", tmp[i]->z);
-//		++i;
-//	}
-//	return (0);
-//}
+static int	check_point(t_env *env)
+{
+	t_point	**tmp;
+	int		i;
+
+	i = 0;
+	tmp = (t_point **)env->map->contents;
+	while (i < env->map->end)
+	{
+		printf("x = %.0f\n", tmp[i]->x);
+		printf("y = %.0f\n", tmp[i]->y);
+		printf("z = %.0f\n", tmp[i]->z);
+		printf("i = %d\n", i);
+		++i;
+	}
+	return (0);
+}
 
 static int	read_point(t_arr *src, t_env *env)
 {
@@ -70,7 +70,7 @@ static int	read_point(t_arr *src, t_env *env)
 			MEMCHECK(in);
 			in->x = (double)j + 1;
 			in->y = (double)i + 1;
- 			in->z = ft_atoi(out[j]);
+			in->z = (double)ft_atoi(out[j]);
 			arr_push(env->map, in);
 			++j;
 		}
@@ -107,7 +107,7 @@ int			fdf_reader(t_env *env, int fd)
 	}
 	env->map_h = count;
 	read_point(file, env);
-//	check_point(env);
+	check_point(env);
 	arr_del(file);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 16:08:53 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 14:23:40 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ void			ft_perror(const char *s);
 void			drawline(int x0, int y0, int x1, int y1, t_env *env);
 void			ft_3d_draw(t_point p0, t_point p1, t_env *env);
 void			set_pixel(int x, int y, t_env *env);
+void			scale(t_env *env);
+void			centerfind(t_env *env);
+void			xrotation(t_env *env, float rad);
+void			addpixels(t_env *env);
 
 #endif

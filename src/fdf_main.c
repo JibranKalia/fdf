@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 18:08:25 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 15:52:30 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #define LEFT		123
 #define PAGE_UP		116
 #define PAGE_DOWN	121
-#define INDEX(x, y) ((y * env->map_w) + x)
+#define INDEX(x, y) (((y) * env->map_w) + (x))
 
 void	ft_perror(const char *s)
 {
@@ -122,8 +122,8 @@ void		draw_all(t_env *env)
 	tmp = (t_point **)env->map->contents;
 	while (y < env->map_h)
 	{
-		//if (x < env->map_w - 1)
-		//	ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x + 1, y)], env);
+		if (x < env->map_w - 1)
+			ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x + 1, y)], env);
 		if (y < env->map_h - 1)
 			ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x, y + 1)], env);
 		if (x == env->map_w - 1)
@@ -134,6 +134,7 @@ void		draw_all(t_env *env)
 		else
 			x++;
 	}
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 static int	init_env(t_env *env)

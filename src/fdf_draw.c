@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 12:46:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 18:00:31 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 15:53:11 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void		set_pixel(int x, int y, t_env *env)
 	if (XCHECK(x) || YCHECK(y))
 		return ;
 	env->img_data[(x + y * WIN_WIDTH)] = COLOR1;
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 void		ft_3d_draw(t_point p0, t_point p1, t_env *env)

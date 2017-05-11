@@ -6,13 +6,13 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 15:59:55 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 16:08:58 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define WIN_WIDTH 800
+# define WIN_WIDTH 1600
 # define WIN_HEIGHT 800
 # define COLOR1 0x00ff00
 
@@ -73,5 +73,6 @@ void			centerfind(t_env *env);
 void			draw_all(t_env *env);
 void			xrotation(t_env *env, float rad);
 void			scale(t_env *env);
+void			pad(t_env *env);
 
 #endif

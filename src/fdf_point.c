@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 16:02:21 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 16:09:45 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,20 @@ void		draw_all(t_env *env)
 			x++;
 	}
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+}
+
+void		pad(t_env *env)
+{
+
+	int				i;
+	t_point			**tmp;
+
+	i = 0;
+	tmp = (t_point **)env->map->contents;
+	while (i < env->map->end)
+	{
+		tmp[i]->x += (env->win_w) / 4;
+		tmp[i]->y += (env->win_h) / 4;
+		++i;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 16:00:07 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 16:08:43 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int			main(int ac, char **av)
 	fdf_reader(env, fd);
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	scale(env);
+	pad(env);
 	centerfind(env);
 	xrotation(env, -.2);
 	draw_all(env);

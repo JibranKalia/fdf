@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/09 14:57:57 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/11 15:56:04 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LDFLAGS		:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
 LIBFT		:= libft/libft.a
 LIBMLX		:= libmlx/libmlx.a
 
-FILES		+= fdf_main fdf_reader fdf_draw
+FILES		+= fdf_main fdf_reader fdf_draw fdf_point
 #FILES		+= alloc_wrap
 
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))

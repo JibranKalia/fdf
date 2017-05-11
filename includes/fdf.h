@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 18:09:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 15:57:46 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <mlx.h>
 # include <math.h>
 # include <libft.h>
+# define INDEX(x, y) (((y) * env->map_w) + (x))
 
 typedef struct	s_ixyz
 {
@@ -68,5 +69,9 @@ void			ft_perror(const char *s);
 void			drawline(int x0, int y0, int x1, int y1, t_env *env);
 void			ft_3d_draw(t_point p0, t_point p1, t_env *env);
 void			set_pixel(int x, int y, t_env *env);
+void			centerfind(t_env *env);
+void			draw_all(t_env *env);
+void			xrotation(t_env *env, float rad);
+void			scale(t_env *env);
 
 #endif

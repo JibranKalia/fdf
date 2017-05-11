@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 15:57:46 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/11 15:59:55 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct	s_ixyz
 
 typedef struct	s_point
 {
-	double		x;
-	double		y;
-	double		z;
+	float		x;
+	float		y;
+	float		z;
 	int			color;
 }				t_point;
 

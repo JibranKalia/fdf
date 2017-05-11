@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/11 15:55:07 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 15:57:07 by jkalia           ###   ########.fr       */
+/*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
+/*   Updated: 2017/05/11 16:02:21 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		centerfind(t_env *env)
 	sumy = 0;
 	sumz = 0;
 	tmp = (t_point **)env->map->contents;
-	while (i < env->map->end)
+	while(i < env->map->end)
 	{
 		sumx += tmp[i]->x;
 		sumy += tmp[i]->y;

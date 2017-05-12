@@ -1,3 +1,6 @@
+#
+#
+
 NOM=libmlx.a
 SRC= mlx_shaders.c mlx_new_window.m mlx_init_loop.m mlx_new_image.m mlx_xpm.c mlx_int_str_to_wordtab.c
 OBJ1=$(SRC:.c=.o)
@@ -7,13 +10,11 @@ CFLAGS+=-O2
 all: $(NOM)
 
 $(NOM):	$(OBJ)
-	@ar -r $(NOM) $(OBJ)
-	@ranlib $(NOM)
-	@echo "\033[32mCompiled Libmlx\033[0m"
+	ar -r $(NOM) $(OBJ)
+	ranlib $(NOM)
 
 clean:
-	@rm -f $(NOM) $(OBJ) *~
-	@rm -f mlx_app
-	@echo "\033[32mRemoved Libmlx\033[0m"
+	rm -f $(NOM) $(OBJ) *~
+	rm -f mlx_app
 
 re: clean all

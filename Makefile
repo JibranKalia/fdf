@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/11 15:59:05 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/12 14:24:54 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(NAME): $(LIBMLX) $(LIBFT) $(OBJ)
 	@echo "\033[32mCreated FDF\033[0m"
 
 clean:
-	@make -C libmlx clean
+#	@make -C libmlx clean
 	@make -C libft clean
 	@rm -rf $(OBJ)
 

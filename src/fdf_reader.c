@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/09 18:09:48 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:48:56 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		file_clean(void *elm)
 	(void)elm;
 }
 
+/**
 static int	check_point(t_env *env)
 {
 	t_point	**tmp;
@@ -46,6 +47,7 @@ static int	check_point(t_env *env)
 	}
 	return (0);
 }
+**/
 
 static int	read_point(t_arr *src, t_env *env)
 {
@@ -107,7 +109,7 @@ int			fdf_reader(t_env *env, int fd)
 	}
 	env->map_h = count;
 	read_point(file, env);
-	check_point(env);
+//	check_point(env);
 	arr_del(file);
 	return (0);
 }

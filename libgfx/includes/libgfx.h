@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:08:37 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:51:03 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <math.h>
 # include <mlx.h>
 # include <libft.h>
+# include "keys.h"
 
 typedef struct	s_point
 {

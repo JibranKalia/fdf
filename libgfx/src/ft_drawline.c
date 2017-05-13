@@ -6,13 +6,13 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:30:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 19:59:03 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:09:08 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libgfx.h>
 
-void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
+void		ft_3d_draw(t_env *env, t_point p0, t_point p1)
 {
 	int		dx;
 	int		dy;
@@ -28,7 +28,7 @@ void		ft_3d_draw(t_point p0, t_point p1, t_env *env)
 	incy = (p0.y < p1.y) ? 1 : -1;
 	while (1)
 	{
-		ft_putpixel(p0.x, p0.y, env);
+		ft_putpixel(env, p0.x, p0.y);
 		if (p0.x == p1.x && p0.y == p1.y)
 			break;
 		e2 = 2 * err;

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:01:15 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:08:37 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct	s_env
 	t_ixyz		center;
 }				t_env;
 
-void		ft_putpixel(int x, int y, t_env *env);
-void			ft_3d_draw(t_point p0, t_point p1, t_env *env);
+void		ft_putpixel(t_env *env, int x, int y);
+void			ft_3d_draw(t_env *env, t_point p0, t_point p1);
 
 #endif

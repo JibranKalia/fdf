@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 17:01:49 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:11:36 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ void		puttoimg(t_env *env)
 	while (y < env->map_h)
 	{
 		if (x < env->map_w - 1)
-			ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x + 1, y)], env);
+			ft_3d_draw(env, *tmp[INDEX(x, y)], *tmp[INDEX(x + 1, y)]);
 		if (y < env->map_h - 1)
-			ft_3d_draw(*tmp[INDEX(x, y)], *tmp[INDEX(x, y + 1)], env);
+			ft_3d_draw(env, *tmp[INDEX(x, y)], *tmp[INDEX(x, y + 1)]);
 		if (x == env->map_w - 1)
 		{
 			y++;

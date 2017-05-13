@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/12 19:59:45 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/12 20:12:00 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[32mRemoved LIBGFX Files\033[0m"
+	@echo "\033[32mRemoved LIBGFX\033[0m"
 
 re: fclean all

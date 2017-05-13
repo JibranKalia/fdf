@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:58:21 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:05:15 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:08:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 #define XCHECK(x) ((x) < 0 || (x) >= env->win_w)
 #define YCHECK(y) ((y) < 0 || (y) >= env->win_h)
+# define COLOR1 0x00ff00
 
-void		ft_putpixel(t_env *env, int x, int y, t_rgb color)
+void		ft_putpixel(t_env *env, int x, int y)
 {
 	if (XCHECK(x) || YCHECK(y))
 		return ;

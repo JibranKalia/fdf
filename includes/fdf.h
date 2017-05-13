@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 19:56:19 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:08:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FDF_H
 # define WIN_WIDTH 1600
 # define WIN_HEIGHT 1200
-# define COLOR1 0x00ff00
 
 # include <stdlib.h>
 # include <fcntl.h>

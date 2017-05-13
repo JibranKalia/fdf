@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 19:23:40 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 20:10:12 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static	int	reset_img(t_env *env)
 int			draw(t_env *env)
 {
 	CHK(reset_img(env) == -1, -1);
-	drawline(10, 10, 500, 500, env);
+	//drawline(10, 10, 500, 500, env);
 //	scale(env);
 //	pad(env);
 	centerfind(env);

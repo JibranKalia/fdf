@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:48:56 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 00:03:43 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 void		map_clean(void *elm)
 {
-	ft_bzero(elm, sizeof(t_point));
+	ft_bzero(elm, sizeof(t_vec3f));
 }
 
 void		file_clean(void *elm)
@@ -53,11 +53,11 @@ static int	read_point(t_arr *src, t_env *env)
 {
 	char		**tmp;
 	char		**out;
-	t_point		*in;
+	t_vec3f		*in;
 	int			i;
 	int			j;
 
-	env->map = arr_create(sizeof(t_point), env->map_h * env->map_w);
+	env->map = arr_create(sizeof(t_vec3f), env->map_h * env->map_w);
 	MEMCHECK(env->map);
 	env->map->del = map_clean;
 	tmp = (char **)src->contents;
@@ -68,7 +68,7 @@ static int	read_point(t_arr *src, t_env *env)
 		j = 0;
 		while (out[j])
 		{	
-			in = ft_memalloc(sizeof(t_point));
+			in = ft_memalloc(sizeof(t_vec3f));
 			MEMCHECK(in);
 			in->x = (double)j + 1;
 			in->y = (double)i + 1;

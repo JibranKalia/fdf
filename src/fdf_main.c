@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 21:00:54 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 00:02:29 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_perror(const char *s)
 
 void		incz(t_env *env)
 {
-	t_point		**tmp;
+	t_vec3f		**tmp;
 	int				i;
 
 	i = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while (i < env->map->end)
 	{
 		tmp[i]->z *= 1.5;

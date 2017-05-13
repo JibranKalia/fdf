@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_point.c                                        :+:      :+:    :+:   */
+/*   fdf_vec3f.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,11 +14,11 @@
 
 void		scale(t_env *env)
 {
-	t_point		**tmp;
+	t_vec3f		**tmp;
 	int				i;
 
 	i = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while (i < env->map->end)
 	{
 		tmp[i]->x *= ((env->win_h / env->map_h) / 2);
@@ -30,7 +30,7 @@ void		scale(t_env *env)
 
 void		centerfind(t_env *env)
 {
-	t_point		**tmp;
+	t_vec3f		**tmp;
 	int			i;
 	int			sumx;
 	int			sumy;
@@ -40,7 +40,7 @@ void		centerfind(t_env *env)
 	sumx = 0;
 	sumy = 0;
 	sumz = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while(i < env->map->end)
 	{
 		sumx += tmp[i]->x;
@@ -56,19 +56,19 @@ void		centerfind(t_env *env)
 void		xrotation(t_env *env, float rad)
 {
 	int				i;
-	t_rotation		r_points;
-	t_point			**tmp;
+	t_rotation		r_vec3fs;
+	t_vec3f			**tmp;
 
 	i = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while (i < env->map->end)
 	{
-		r_points.y = tmp[i]->y - env->center.y;
-		r_points.z = tmp[i]->z - env->center.z;
-		r_points.d = hypot(r_points.y, r_points.z);
-		r_points.theta = atan2(r_points.y, r_points.z) + rad;
-		tmp[i]->z = r_points.d * cos(r_points.theta) + env->center.z;
-		tmp[i]->y = r_points.d * sin(r_points.theta) + env->center.y;
+		r_vec3fs.y = tmp[i]->y - env->center.y;
+		r_vec3fs.z = tmp[i]->z - env->center.z;
+		r_vec3fs.d = hypot(r_vec3fs.y, r_vec3fs.z);
+		r_vec3fs.theta = atan2(r_vec3fs.y, r_vec3fs.z) + rad;
+		tmp[i]->z = r_vec3fs.d * cos(r_vec3fs.theta) + env->center.z;
+		tmp[i]->y = r_vec3fs.d * sin(r_vec3fs.theta) + env->center.y;
 		++i;
 	}
 }
@@ -83,11 +83,11 @@ void		puttoimg(t_env *env)
 {
 	int				x;
 	int				y;
-	t_point			**tmp;
+	t_vec3f			**tmp;
 
 	x = 0;
 	y = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while (y < env->map_h)
 	{
 		if (x < env->map_w - 1)
@@ -108,10 +108,10 @@ void		pad(t_env *env)
 {
 
 	int				i;
-	t_point			**tmp;
+	t_vec3f			**tmp;
 
 	i = 0;
-	tmp = (t_point **)env->map->contents;
+	tmp = (t_vec3f **)env->map->contents;
 	while (i < env->map->end)
 	{
 		tmp[i]->x += (env->win_w) / 4;

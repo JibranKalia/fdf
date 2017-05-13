@@ -6,13 +6,13 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:30:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:42:59 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 00:05:08 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libgfx.h>
 
-void		ft_3d_draw(t_env *env, t_point p0, t_point p1)
+void		ft_3d_draw(t_env *env, t_vec3f p0, t_vec3f p1)
 {
 	int		dx;
 	int		dy;

@@ -6,19 +6,19 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 12:46:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 15:53:11 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 15:54:22 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-#define XCHECK(x) ((x) < 0 || (x) >= WIN_WIDTH)
-#define YCHECK(y) ((y) < 0 || (y) >= WIN_HEIGHT)
+#define XCHECK(x) ((x) < 0 || (x) >= env->win_w)
+#define YCHECK(y) ((y) < 0 || (y) >= env->win_h)
 
 void		set_pixel(int x, int y, t_env *env)
 {
 	if (XCHECK(x) || YCHECK(y))
 		return ;
-	env->img_data[(x + y * WIN_WIDTH)] = COLOR1;
+	env->img_data[(x + y * env->win_w)] = COLOR1;
 }
 
 void		ft_3d_draw(t_point p0, t_point p1, t_env *env)

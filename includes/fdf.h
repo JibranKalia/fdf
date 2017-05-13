@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 16:08:58 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 14:54:44 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			drawline(int x0, int y0, int x1, int y1, t_env *env);
 void			ft_3d_draw(t_point p0, t_point p1, t_env *env);
 void			set_pixel(int x, int y, t_env *env);
 void			centerfind(t_env *env);
-void			draw_all(t_env *env);
+void			puttoimg(t_env *env);
 void			xrotation(t_env *env, float rad);
 void			scale(t_env *env);
 void			pad(t_env *env);

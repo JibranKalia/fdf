@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/11 16:09:45 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 17:01:49 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void		xrotation(t_env *env, float rad)
  * x = i - Wy
 **/
 
-void		draw_all(t_env *env)
+void		puttoimg(t_env *env)
 {
 	int				x;
 	int				y;
@@ -102,7 +102,6 @@ void		draw_all(t_env *env)
 		else
 			x++;
 	}
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }
 
 void		pad(t_env *env)

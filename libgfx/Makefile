@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/12 20:12:00 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/12 22:08:41 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		:= gcc
 CFLAGS		+= -Wall -Wextra -Werror
 CFLAGS		+= -I includes -I ../libmlx -I ../libft/includes -I ../includes
 
-FILES		:= ft_putpixel ft_drawline
+FILES		:= ft_putpixel ft_drawline key_status matrix_math matrix_rotate
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJ		:= $(SRC:.c=.o)
 

@@ -6,57 +6,38 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/12 19:41:46 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/12 19:59:45 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= fdf
-CC			:= gcc
-CFLAGS		+= -Wall -Wextra -Werror -O2
-CFLAGS		+= -I includes/ -I libft/includes/ -I libmlx
-CFLAGS		+= -I libgfx/includes/
-LDFLAGS		:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
+NAME		:= libgfx.a
+CC		:= gcc
+CFLAGS		+= -Wall -Wextra -Werror
+CFLAGS		+= -I includes -I ../libmlx -I ../libft/includes -I ../includes
 
-LIBFT		:= libft/libft.a
-LIBMLX		:= libmlx/libmlx.a
-LIBGFX		:= libgfx/libgfx.a
-
-FILES		+= fdf_main fdf_reader fdf_draw fdf_point
-#FILES		+= alloc_wrap
-
+FILES		:= ft_putpixel ft_drawline
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJ		:= $(SRC:.c=.o)
 
 .PHONY = all clean fclean clean re
 
-all: $(NAME)
+all: $(NAME) $(CLIENT) $(TEST)
 
 $(LIBFT):
-	@make -C libft
+	@make -C libft	
 
-$(LIBMLX):
-	@make -C libmlx
-
-$(LIBGFX):
-	@make -C libgfx
-	
 $(OBJ): %.o: %.c
-	@$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(LIBMLX) $(LIBFT) $(OBJ) $(LIBGFX)
-	@$(CC) $(LDFLAGS) -o $@ $^
-	@echo "\033[32mCreated FDF\033[0m"
-
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "\033[32mCreated LIBGFX\033[0m"
 clean:
-	@make -C libmlx clean
-	@make -C libgfx clean
-	@make -C libft clean
-	@rm -rf $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	@make -C libft fclean
-	@make -C libgfx fclean
-	@rm -rf $(NAME)
-	@echo "\033[32mRemoved FDF\033[0m"
+	@rm -f $(NAME)
+	@echo "\033[32mRemoved LIBGFX Files\033[0m"
 
 re: fclean all

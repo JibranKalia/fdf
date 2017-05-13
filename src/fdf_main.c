@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 15:58:43 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/12 19:23:40 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,7 @@ static int	key_hooks(int keycode, t_env *env)
 {
 	if (keycode == ESC)
 	{
-//		DEBUG("BEFORE IMG");
-//		mlx_destroy_image(env->mlx, &env->img);
-		ft_putendl("After Img");
-		if (env->mlx)
-			ft_putendl("mlx");
-		if (env->win)
-			ft_putendl("win");
 		mlx_destroy_window(env->mlx, env->win);
-		ft_putendl("iiiir Img");
 		exit(0);
 	}
 	if (keycode == W)

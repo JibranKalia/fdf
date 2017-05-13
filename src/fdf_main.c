@@ -6,11 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 00:02:29 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 01:22:53 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+void		xrot(t_env *env);
 
 void	ft_perror(const char *s)
 {
@@ -65,7 +66,8 @@ static int		draw(t_env *env)
 	CHECK(!env->img, RETURN(-1), "ERROR: mlx_new_image");
 	env->img_data = (int *)mlx_get_data_addr(env->img, &(env->bpp), &(env->ln), &(env->ed));
 	CHECK(env->img == 0, RETURN(-1), "ERROR: img");
-//	scale(env);
+	scale(env);
+//	xrot(env);
 //	pad(env);
 //	centerfind(env);
 //	xrotation(env, -.2);

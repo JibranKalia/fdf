@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 22:03:01 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 00:06:15 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 01:15:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mat_translate(float dst[4][4], float x, float y, float z)
 	tmp[3][0] = x;
 	tmp[3][1] = y;
 	tmp[3][2] = z;
-	mat_mult(dst, dst, tmp);
+	mat_mult(dst, tmp, dst);
 }
 
 void	mat_scale(float dst[4][4], float x, float y, float z)
@@ -32,7 +32,7 @@ void	mat_scale(float dst[4][4], float x, float y, float z)
 	tmp[1][1] = y;
 	tmp[2][2] = z;
 	tmp[3][3] = 1;
-	mat_mult(dst, dst, tmp);
+	mat_mult(dst, tmp, dst);
 }
 
 void		mat_rotate(float org[4][4], float ax, float ay, float az)

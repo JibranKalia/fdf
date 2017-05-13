@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 00:03:43 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 01:08:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,51 @@ void		file_clean(void *elm)
 	(void)elm;
 }
 
-/**
 static int	check_point(t_env *env)
 {
-	t_point	**tmp;
 	int		i;
 
 	i = 0;
-	tmp = (t_point **)env->map->contents;
 	while (i < env->map->end)
 	{
-		printf("x = %.0f\n", tmp[i]->x);
-		printf("y = %.0f\n", tmp[i]->y);
-		printf("z = %.0f\n", tmp[i]->z);
+		printf("x = %.0f\n", env->points[i]->local->x);
+		printf("y = %.0f\n", env->points[i]->local->y);
+		printf("z = %.0f\n", env->points[i]->local->z);
 		printf("i = %d\n", i);
 		++i;
 	}
 	return (0);
 }
-**/
+
+static int	save_point(t_env *env)
+{
+	int		i;
+	t_vec3f		**tmp;
+	t_vertex	**out;
+
+	env->max_point = env->map_h * env->map_w;
+	out = ft_memalloc(sizeof(t_vertex*) * env->max_point);
+	tmp = (t_vec3f **)env->map->contents;
+	i = 0;
+	while (i < env->max_point)
+	{
+		out[i] = ft_memalloc(sizeof(t_vertex));	
+		out[i]->local  = ft_memalloc(sizeof(t_vec3f));
+		out[i]->alligned = ft_memalloc(sizeof(t_vec3f));
+		++i;
+	}
+	i = 0;
+	while (i < env->max_point)
+	{
+		out[i]->local->x = tmp[i]->x;
+		out[i]->local->y = tmp[i]->y;
+		out[i]->local->z = tmp[i]->z;
+		++i;
+	}
+	env->points = out;
+//	arr_del(env->map);
+	return (0);
+}
 
 static int	read_point(t_arr *src, t_env *env)
 {
@@ -109,7 +135,8 @@ int			fdf_reader(t_env *env, int fd)
 	}
 	env->map_h = count;
 	read_point(file, env);
-//	check_point(env);
+	save_point(env);
+///	check_point(env);
 	arr_del(file);
 	return (0);
 }

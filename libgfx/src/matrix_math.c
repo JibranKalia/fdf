@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 21:47:50 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 22:08:32 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 01:06:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ void	mat_id(float mat[4][4])
 	mat[1][1] = 1;
 	mat[2][2] = 1;
 	mat[3][3] = 1;
+}
+
+void	mat_debug(float mat[4][4])
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < 4)
+	{
+		j = -1;
+		while (++j < 4)
+			printf("MAT[%d][%d] = %0.3f\n", i, j, mat[i][j]);
+	}
 }
 
 void	mat_mult(float src1[4][4], float src2[4][4], float dst[4][4])

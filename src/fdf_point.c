@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 01:28:45 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 22:54:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,12 @@ void		scale(t_env *env)
 	env->scale_y =  (env->win_h / env->map_h) / 1.5;
 	env->scale_z = 	(env->win_h / env->map_h) / 1.5;
 	mat_id(mat);
-	DEBUG("AFTER ID");
 	mat_debug(mat);
-	mat_translate(mat, -(env->map_w / 2), -(env->map_h / 2), 0);
-	DEBUG("AFTER TRANS");
+	mat_rotate(mat, 0.1, 0, 0);
+	printf("After\n");
 	mat_debug(mat);
 	mat_scale(mat, env->scale_x, env->scale_y, env->scale_z);
-	DEBUG("AFTER SCALE");
-	mat_debug(mat);
-	//mat_rotate(mat, 0.2, 0, 0);
+	mat_translate(mat, +5, +5, 0);
 	i = -1;
 	while (++i < env->max_point)
 	{

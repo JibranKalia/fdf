@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 01:18:55 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/13 22:44:12 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void			mat_debug(float mat[4][4]);
 void			mat_mult(float src1[4][4], float src2[4][4], float dst[4][4]);
 void			mat_translate(float dst[4][4], float x, float y, float z);
 void			mat_scale(float dst[4][4], float x, float y, float z);
-void			mat_rotate(float org[4][4], float ax, float ay, float az);
+void			mat_rotate(float dst[4][4], float ax, float ay, float az);
 void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst);
 #endif

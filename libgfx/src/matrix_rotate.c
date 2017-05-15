@@ -6,46 +6,46 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 22:03:01 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 22:55:39 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 13:46:51 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libgfx.h>
 
-static void		mat_rotx(float src2[4][4], float ax)
+static void		mat_rotx(float src[4][4], float ax)
 {
-	mat_bzero(mat);
-	src2[0][0] = 1;
-	src2[1][1] = cos(ax);
-	src2[1][2] = sin(ax);
-	src2[2][1] = -sin(ax);
-	src2[2][2] = cos(ax);
-	src2[3][3] = 1;
+	mat_bzero(src);
+	src[0][0] = 1;
+	src[1][1] = cos(ax);
+	src[1][2] = sin(ax);
+	src[2][1] = -sin(ax);
+	src[2][2] = cos(ax);
+	src[3][3] = 1;
 }
 
-static void		mat_roty(float src2[4][4], float ay)
+static void		mat_roty(float src[4][4], float ay)
 {
-	mat_bzero(mat);
-	src2[0][0] = cos(ay);
-	src2[0][2] = -sin(ay);
-	src2[1][1] = 1;
-	src2[2][0] = sin(ay);
-	src2[2][2] = cos(ay);
-	src2[3][3] = 1;
+	mat_bzero(src);
+	src[0][0] = cos(ay);
+	src[0][2] = -sin(ay);
+	src[1][1] = 1;
+	src[2][0] = sin(ay);
+	src[2][2] = cos(ay);
+	src[3][3] = 1;
 }
 
-static void		mat_rotz(float src2[4][4], float az)
+static void		mat_rotz(float src[4][4], float az)
 {
-	mat_bzero(mat);
-	src2[0][0] = cos(az);
-	src2[0][1] = sin(az);
-	src2[1][0] = -sin(az);
-	src2[1][1] = cos(az);
-	src2[2][2] = 1;
-	src2[3][3] = 1;
+	mat_bzero(src);
+	src[0][0] = cos(az);
+	src[0][1] = sin(az);
+	src[1][0] = -sin(az);
+	src[1][1] = cos(az);
+	src[2][2] = 1;
+	src[3][3] = 1;
 }
 
-void			mat_rotate(float src2[4][4], float ax, float ay, float az)
+void			mat_rotate(float src[4][4], float ax, float ay, float az)
 {
 	float matx[4][4];
 	float maty[4][4];
@@ -56,20 +56,20 @@ void			mat_rotate(float src2[4][4], float ax, float ay, float az)
 	mat_rotx(matx, ax);
 	mat_roty(maty, ay);
 	mat_rotz(matz, az);
-	mat_mult(mat, matx, mat1);
+	mat_mult(src, matx, mat1);
 	mat_mult(mat1, matx, mat2);
-	mat_mult(mat2, matz, mat);
+	mat_mult(mat2, matz, src);
 }
 
-void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst)
+void			vec_mat_mult(t_vec3f *src1, float src[4][4], t_vec3f *dst)
 {
-	dst->x = src->x * src2[0][0]
-		+ src->y * src2[1][0]
-		+ src->z * src2[2][0] + src2[3][0];
-	dst->y = src->x * src2[0][1]
-		+ src->y * src2[1][1]
-		+ src->z * src2[2][1] + src2[3][1];
-	dst->z = src->x * src2[0][2]
-		+ src->y * src2[1][2]
-		+ src->z * src2[2][2] + src2[3][2];
+	dst->x = src1->x * src[0][0]
+		+ src1->y * src[1][0]
+		+ src1->z * src[2][0] + src[3][0];
+	dst->y = src1->x * src[0][1]
+		+ src1->y * src[1][1]
+		+ src1->z * src[2][1] + src[3][1];
+	dst->z = src1->x * src[0][2]
+		+ src1->y * src[1][2]
+		+ src1->z * src[2][2] + src[3][2];
 }

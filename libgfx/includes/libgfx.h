@@ -79,4 +79,6 @@ void			mat_translate(float dst[4][4], float x, float y, float z);
 void			mat_scale(float dst[4][4], float x, float y, float z);
 void			mat_rotate(float dst[4][4], float ax, float ay, float az);
 void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst);
+void			mat_bzero(float mat[4][4]);
+
 #endif

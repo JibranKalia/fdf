@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 21:47:50 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 01:06:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 14:28:56 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,18 @@ void	mat_scale(float dst[4][4], float x, float y, float z)
 	tmp[2][2] = z;
 	tmp[3][3] = 1;
 	mat_mult(dst, tmp, dst);
+}
+
+void	mat_copy(float src[4][4], float dst[4][4])
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < 4)
+	{
+		j = -1;
+		while (++j < 4)
+			dst[i][j] = src[i][j];
+	}
 }

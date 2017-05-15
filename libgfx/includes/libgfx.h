@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 22:44:12 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 14:30:41 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,31 @@
 
 typedef struct	s_vec3f
 {
-	float	x;
-	float	y;
-	float	z;
-}		t_vec3f;
+	float		x;
+	float		y;
+	float		z;
+}				t_vec3f;
 
-typedef	struct	s_ixyz
+typedef struct	s_ixyz
 {
-	int	x;
-	int	y;
-	int	z;
-}		t_ixyz;
+	int			x;
+	int			y;
+	int			z;
+}				t_ixyz;
 
-typedef	struct	s_rgb
+typedef struct	s_rgb
 {
-	float	r;
-	float	g;
-	float	b;
-}		t_rgb;
+	float		r;
+	float		g;
+	float		b;
+}				t_rgb;
 
 typedef struct	s_vertex
 {
 	t_vec3f		*local;
 	t_vec3f		*alligned;
 
-}		t_vertex;
+}				t_vertex;
 
 typedef struct	s_env
 {
@@ -58,7 +58,7 @@ typedef struct	s_env
 	int			map_w;
 	int			win_w;
 	int			win_h;
-	int		max_point;
+	int			max_point;
 	float		scale_x;
 	float		scale_y;
 	float		scale_z;
@@ -80,5 +80,6 @@ void			mat_scale(float dst[4][4], float x, float y, float z);
 void			mat_rotate(float dst[4][4], float ax, float ay, float az);
 void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst);
 void			mat_bzero(float mat[4][4]);
+void			mat_copy(float src[4][4], float dst[4][4]);
 
 #endif

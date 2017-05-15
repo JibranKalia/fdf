@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 14:30:41 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 15:14:26 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ typedef struct	s_ixyz
 	int			y;
 	int			z;
 }				t_ixyz;
+
+typedef struct	s_ixy
+{
+	int			x;
+	int			y;
+}				t_ixy;
 
 typedef struct	s_rgb
 {
@@ -62,6 +68,7 @@ typedef struct	s_env
 	float		scale_x;
 	float		scale_y;
 	float		scale_z;
+	float		mat[4][4];
 	t_arr		*map;
 	t_vertex	**points;
 	t_arr		*scaled;

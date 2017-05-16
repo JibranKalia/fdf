@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 21:47:50 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 14:48:29 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 20:36:03 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	mat_mult(float src1[4][4], float src2[4][4], float dst[4][4])
 		}
 		++i;
 	}
-	DEBUG("MAT_MULT SEG");
 }
 
 void	mat_translate(float dst[4][4], float x, float y, float z)

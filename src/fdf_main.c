@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 17:07:53 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 20:35:25 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,6 @@ void	ft_perror(const char *s)
 	exit(EXIT_FAILURE);
 }
 
-static int	key_press_hook(int keycode, t_env *env)
-{
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(env->mlx, env->win);
-		exit(0);
-	}
-	if (keycode == KEY_W)
-	{
-		//reset_img(env);
-	//	draw(env);
-	}
-	return (0);
-}
-
 static int	init_env(t_env *env)
 {
 	env->mlx = mlx_init();
@@ -42,7 +27,7 @@ static int	init_env(t_env *env)
 	env->win = mlx_new_window(env->mlx, env->win_w, env->win_h, "42");
 	CHECK(!env->win, RETURN(-1), "Error: mlx_new_window");
 	mat_id(env->mat);
-	env->scale = 0.5;
+	env->scale = 20;
 	env->ax = 0.2;
 	env->ay = 0.1;
 	env->az = 0.1;
@@ -51,12 +36,20 @@ static int	init_env(t_env *env)
 	return (0);
 }
 
-static int		draw(t_env *env)
+static int		reset_img(t_env *env)
 {
 	env->img = mlx_new_image(env->mlx, env->win_w, env->win_h);
 	CHECK(!env->img, RETURN(-1), "ERROR: mlx_new_image");
 	env->img_data = (int *)mlx_get_data_addr(env->img, &(env->bpp), &(env->ln), &(env->ed));
 	CHECK(env->img == 0, RETURN(-1), "ERROR: img");
+	return (0);
+}
+
+int			draw(t_env *env)
+{
+	DEBUG("DRAW");
+	env->scale = (env->win_h / env->map_h) / 2;
+	reset_img(env);
 	translate(env);
 	scale(env);
 	rotate(env);
@@ -80,8 +73,9 @@ int			main(int ac, char **av)
 	MEMCHECK(env);
 	fdf_reader(env, fd);
 	draw(env);
-	mlx_hook(env->win, 2, 0, key_press_hook, env);
-	//mlx_hook(env->win, 17, 0, exit_hook, env);
+	mlx_hook(env->win, 2, 0, key_press, env);
+	mlx_hook(env->win, 3, 0, key_release, env);
+	mlx_hook(env->win, 17, 0, key_exit, env);
 	mlx_loop(env->mlx);
 	return (0);
 }

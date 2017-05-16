@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/15 17:03:31 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/15 20:34:15 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT		:= libft/libft.a
 LIBMLX		:= libmlx/libmlx.a
 LIBGFX		:= libgfx/libgfx.a
 
-FILES		+= fdf_main fdf_reader fdf_point
+FILES		+= fdf_main fdf_reader fdf_point fdf_key
 #FILES		+= alloc_wrap
 
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
@@ -58,5 +58,12 @@ fclean: clean
 	@make -C libgfx fclean
 	@rm -rf $(NAME)
 	@echo "\033[32mRemoved FDF\033[0m"
+
+out:
+	make -C libgfx clean
+	rm -rf $(OBJ) $(NAME)
+
+debug: out all
+
 
 re: fclean all

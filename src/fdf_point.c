@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 15:20:26 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 17:10:57 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void		scale(t_env *env)
 {
-	env->scale_x = (env->win_h / env->map_h) / 1.5;
-	env->scale_y = (env->win_h / env->map_h) / 1.5;
-	env->scale_z = (env->win_h / env->map_h) / 1.5;
 	printf("Before Scale:\n");
 	mat_debug(env->mat);
-	mat_scale(env->mat, env->scale_x, env->scale_y, env->scale_z);
+	mat_scale(env->mat, env->scale, env->scale, env->scale);
 	printf("After Scale:\n");
 	mat_debug(env->mat);
 }
@@ -29,7 +26,7 @@ void		rotate(t_env *env)
 {
 	printf("Before Rotate:\n");
 	mat_debug(env->mat);
-	mat_rotate(env->mat, 0.2, .1, .1);
+	mat_rotate(env->mat, env->ax, env->ay, env->az);
 	printf("After Rotate:\n");
 	mat_debug(env->mat);
 	DEBUG("ROTATE SEG");
@@ -39,8 +36,9 @@ void		translate(t_env *env)
 {
 	printf("Before Translate:\n");
 	mat_debug(env->mat);
-	mat_translate(env->mat, 5, 5, 0);
-
+	env->xtrans = 5;
+	env->ytrans = 5;
+	mat_translate(env->mat, env->xtrans, env->ytrans, 0);
 	printf("After Translate:\n");
 	mat_debug(env->mat);
 }

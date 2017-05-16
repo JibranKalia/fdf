@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 15:11:44 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 17:07:53 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ static int	init_env(t_env *env)
 	env->win = mlx_new_window(env->mlx, env->win_w, env->win_h, "42");
 	CHECK(!env->win, RETURN(-1), "Error: mlx_new_window");
 	mat_id(env->mat);
+	env->scale = 0.5;
+	env->ax = 0.2;
+	env->ay = 0.1;
+	env->az = 0.1;
+	env->xtrans = 0;
+	env->ytrans = 0;
 	return (0);
 }
 

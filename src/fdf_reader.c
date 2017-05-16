@@ -6,12 +6,11 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/13 01:08:16 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/15 17:03:14 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-
 
 /**
  * i = Wx + y
@@ -29,6 +28,7 @@ void		file_clean(void *elm)
 	(void)elm;
 }
 
+/**
 static int	check_point(t_env *env)
 {
 	int		i;
@@ -44,6 +44,7 @@ static int	check_point(t_env *env)
 	}
 	return (0);
 }
+**/
 
 static int	save_point(t_env *env)
 {
@@ -136,7 +137,7 @@ int			fdf_reader(t_env *env, int fd)
 	env->map_h = count;
 	read_point(file, env);
 	save_point(env);
-///	check_point(env);
+//	check_point(env);
 	arr_del(file);
 	return (0);
 }

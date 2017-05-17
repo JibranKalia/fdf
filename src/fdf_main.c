@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 20:47:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 01:19:49 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,37 @@ void	ft_perror(const char *s)
 
 static int	init_env(t_env *env)
 {
-	env->mlx = mlx_init();
 	env->win_w = WIN_WIDTH;
 	env->win_h = WIN_HEIGHT;
+	env->mlx = mlx_init();
 	CHECK(!env->mlx, RETURN(-1), "Error: mlx_init");
 	env->win = mlx_new_window(env->mlx, env->win_w, env->win_h, "42");
 	CHECK(!env->win, RETURN(-1), "Error: mlx_new_window");
 	mat_id(env->mat);
-	env->scale = 20;
 	env->ax = 0.2;
 	env->ay = 0.1;
 	env->az = 0.1;
 	env->xtrans = 0;
 	env->ytrans = 0;
+	env->scale = (env->win_h / env->map_h) / 2;
+	env->xtrans = 5;
+	env->ytrans = 5;
+	return (0);
+}
+
+static int		reset_everything(t_env *env)
+{
+	mat_id(env->mat);
+	env->ax = 0;
+	env->ay = 0;
+	env->az = 0;
+	env->xtrans = 0;
+	env->ytrans = 0;
+	env->scale = 0;
+	env->xtrans = 0;
+	env->ytrans = 0;
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+	mlx_destroy_image(env->mlx, env->img);
 	return (0);
 }
 
@@ -45,20 +63,29 @@ static int		reset_img(t_env *env)
 	return (0);
 }
 
-int			draw(t_env *env)
+int			redraw(t_env *env)
 {
-	DEBUG("DRAW");
-	env->scale = (env->win_h / env->map_h) / 2;
-	env->xtrans = 5;
-	env->ytrans = 5;
+	DEBUG("%{red}REDRAW");
+	reset_img(env);
+	translate(env);
+	scale(env);
+	rotate(env);
+	applyalligned(env);
+	puttoimg(env);
+	reset_everything(env);
+	return (0);
+}
+
+int			initial_draw(t_env *env)
+{
+	DEBUG("%{green}DRAW");
 	reset_img(env);
 	translate(env);
 	scale(env);
 	rotate(env);
 	applypoint(env);
 	puttoimg(env);
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_destroy_image(env->mlx, env->img);
+	reset_everything(env);
 	return (0);
 }
 
@@ -71,10 +98,10 @@ int			main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	CHECK(fd == -1, RETURN(-1), "Open Failed");
 	env = ft_memalloc(sizeof(t_env));
+	fdf_reader(env, fd);
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	MEMCHECK(env);
-	fdf_reader(env, fd);
-	draw(env);
+	initial_draw(env);
 	mlx_hook(env->win, 2, 0, key_press, env);
 	mlx_hook(env->win, 3, 0, key_release, env);
 	mlx_hook(env->win, 17, 0, key_exit, env);

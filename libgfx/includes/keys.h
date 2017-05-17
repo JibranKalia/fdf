@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 20:50:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/12 20:54:11 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 01:40:59 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define KEY_N 45
 # define KEY_M 46
 # define KEY_TAB 48
+# define KEY_SPACE 49
 # define KEY_PLUS 69
 # define KEY_MINUS 78
 # define KEY_UP 126

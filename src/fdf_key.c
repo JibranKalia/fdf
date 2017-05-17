@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 01:31:56 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 01:43:21 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,18 @@ int		key_press(int keycode, t_env *env)
 	if (keycode == KEY_S)
 		env->ax -= 0.05;
 	if (keycode == KEY_A)
-		env->ay -= 0.05;
+		env->ay -= 0.1;
 	if (keycode == KEY_D)
-		env->ay += 0.05;
+		env->ay += 0.1;
 	if (keycode == KEY_Q)
 		env->az += 0.05;
 	if (keycode == KEY_E)
 		env->az -= 0.05;
+	if (keycode == KEY_SPACE)
+	{
+		init_mat(env);
+		init_draw(env);
+	}
 
 	DEBUG("%{blue}Key Press: Keycode %d", keycode);
 	redraw(env);

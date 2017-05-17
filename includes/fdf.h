@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 01:00:21 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 01:40:08 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int				key_release(int keycode, t_env *env);
 int				key_exit(t_env *env);
 int				draw(t_env *env);
 int			redraw(t_env *env);
+int			init_draw(t_env *env);
+void			init_mat(t_env *env);
 void			applyalligned(t_env *env);
 
 #endif

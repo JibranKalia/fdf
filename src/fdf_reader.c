@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:09:41 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:51:54 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	save_point(t_env *env)
 	}
 	env->points = out;
 	env->map->del = map_clean;
-	arr_del(env->map);
+//	arr_del(env->map);
 	return (0);
 }
 
@@ -110,7 +110,7 @@ int			fdf_reader(t_env *env, int fd)
 		free(line);
 	}
 	CHK(read_point(file, env) == -1, -1);
-	arr_del(file);
+//	arr_del(file);
 	CHK(save_point(env) == -1, -1);
 	return (0);
 }

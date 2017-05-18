@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:33:24 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:39:53 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 # define FDF_H
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 800
-
-# include <stdlib.h>
 # include <fcntl.h>
 # include <libgfx.h>
-
 # define INDEX(x, y) (((y) * env->map_w) + (x))
 
 int				fdf_reader(t_env *env, int fd);

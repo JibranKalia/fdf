@@ -6,16 +6,33 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:00:56 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:39:15 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBGFX_H
 # define LIBGFX_H
+
 # include <math.h>
 # include <mlx.h>
 # include <libft.h>
-# include "keys.h"
+
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_F 3
+# define KEY_N 45
+# define KEY_M 46
+# define KEY_K 40
+# define KEY_I 34
+# define KEY_W 13
+# define KEY_ESC 53
+# define KEY_J 38
+# define KEY_L 37
+# define KEY_Q 12
+# define KEY_E 14
+# define KEY_C 8
+# define KEY_SPACE 49
 
 typedef struct	s_vec3f
 {
@@ -74,7 +91,6 @@ typedef struct	s_env
 	float		mat[4][4];
 	t_arr		*map;
 	t_vertex	**points;
-	t_keys		pressed;
 }				t_env;
 
 void			ft_putpixel(t_env *env, int x, int y);

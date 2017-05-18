@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:02:16 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:27:17 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_perror(const char *s)
 void			init_mat(t_env *env)
 {
 	mat_id(env->mat);
-	env->ax = 0.2;
+	env->ax = 0.4;
 	env->ay = 0.1;
 	env->az = 0.1;
 	env->xtrans = 0;
@@ -29,7 +29,7 @@ void			init_mat(t_env *env)
 	env->scale = (env->win_h / env->map_h) / 2;
 	env->xtrans = 5;
 	env->ytrans = 5;
-	env->color = 0x808080;
+	env->color = 0x800080;
 }
 
 static int	init_env(t_env *env)
@@ -110,6 +110,7 @@ int			main(int ac, char **av)
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	MEMCHECK(env);
 	init_draw(env);
+	print_controls();
 	mlx_hook(env->win, 2, 0, key_press, env);
 	mlx_hook(env->win, 3, 0, key_release, env);
 	mlx_hook(env->win, 17, 0, key_exit, env);

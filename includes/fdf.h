@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 18:55:17 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:15:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int				init_draw(t_env *env);
 void			init_mat(t_env *env);
 void			applyalligned(t_env *env);
 int				set_color(t_env *env);
-
+void			print_controls(void);
 #endif

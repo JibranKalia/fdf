@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:03:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:15:42 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ int		set_color(t_env *env)
 	else if (color_num == 9)
 		env->color = 0x008080;
 	return (0);
+}
+
+void	print_controls(void)
+{
+	ft_putstr("w/s : rotate by x axis\n");
+	ft_putstr("a/d : rotate by y axis\n");
+	ft_putstr("q/e : rotate by z axis\n");
+	ft_putstr("c   : switch colors\n");
+	ft_putstr("ijkl: move around\n");
+	ft_putstr("+/- : size change\n");
+	ft_putstr("Esc : quit\n");
 }

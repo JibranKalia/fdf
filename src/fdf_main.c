@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:08:19 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/18 14:14:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void		init_mat(t_env *env)
 	env->ax = 0.4;
 	env->ay = 0.1;
 	env->az = 0.1;
-	env->xtrans = 0;
-	env->ytrans = 0;
+	env->xtrans = -(env->win_w / 2);
+	env->ytrans = -(env->win_h / 2);
 	env->scale = (env->win_h / env->map_h) / 2;
 	env->xtrans = 5;
 	env->ytrans = 5;

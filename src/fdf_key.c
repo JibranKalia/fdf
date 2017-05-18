@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:47:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/18 14:25:35 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,28 @@ int			key_press(int keycode, t_env *env)
 	return (0);
 }
 
+static void	exit_cleanup(t_env *env)
+{
+	int		i;
+
+	i = -1;
+	while (++i < env->max_point)
+	{
+		free(env->points[i]->local);
+		free(env->points[i]->alligned);
+		free(env->points[i]);
+	}
+	free(env->points);
+	ft_bzero(env, sizeof(env));
+	free(env);
+}
+
 int			key_release(int keycode, t_env *env)
 {
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(env->mlx, env->win);
+		exit_cleanup(env);
 		exit(0);
 	}
 	return (0);

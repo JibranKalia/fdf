@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:39:13 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:08:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	CHECK(fd == -1, RETURN(-1), "Open Failed");
 	env = ft_memalloc(sizeof(t_env));
-	fdf_reader(env, fd);
+	CHK(fdf_reader(env, fd) == -1, -1);
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	MEMCHECK(env);
 	init_draw(env);

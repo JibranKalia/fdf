@@ -6,13 +6,13 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/17 19:45:51 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/18 14:04:50 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= fdf
 CC			:= gcc
-CFLAGS		+= -Wall -Wextra -Werror -O2
+CFLAGS		+= -Wall -Wextra -Werror
 CFLAGS		+= -I includes/ -I libft/includes/ -I libmlx
 CFLAGS		+= -I libgfx/includes/
 LDFLAGS		:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:47:47 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:34:21 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		set_color(t_env *env)
 	int color_num;
 
 	color_num = rand() % 10;
-	DEBUG("Color Num = %d", color_num);
 	if (color_num == 0)
 		env->color = 0x800080;
 	else if (color_num == 1)
@@ -48,6 +47,6 @@ void	print_controls(void)
 	ft_putstr("q/e : rotate by z axis\n");
 	ft_putstr("c   : switch colors\n");
 	ft_putstr("ijkl: move around\n");
-	ft_putstr("+/- : size change\n");
+	ft_putstr("n/m : size change\n");
 	ft_putstr("Esc : quit\n");
 }

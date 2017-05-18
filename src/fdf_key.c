@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:38:40 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:32:54 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	linesaver(int keycode, t_env *env)
 {
-	if (keycode == KEY_P)
+	if (keycode == KEY_N)
 		env->scale += 1.1;
-	if (keycode == KEY_O)
+	if (keycode == KEY_M)
 		env->scale += 0.9;
 	if (keycode == KEY_I)
 		env->ytrans += -3;

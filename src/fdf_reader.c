@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/18 14:26:46 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/18 14:40:31 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void		file_clean(void *elm)
 
 static int	malloc_vertex(t_vertex ***tmp, t_env *env)
 {
-	int		i;
+	int			i;
 	t_vertex	**out;
-	
+
 	out = ft_memalloc(sizeof(t_vertex *) * env->max_point);
 	MEMCHECK(out);
 	i = -1;

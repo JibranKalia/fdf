@@ -6,12 +6,11 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:38:52 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:47:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-
 
 static void	linesaver(int keycode, t_env *env)
 {

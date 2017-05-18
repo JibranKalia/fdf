@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 17:05:11 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:00:56 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct	s_vertex
 {
 	t_vec3f		*local;
 	t_vec3f		*alligned;
-
 }				t_vertex;
 
 typedef struct	s_env
@@ -65,6 +64,7 @@ typedef struct	s_env
 	int			win_w;
 	int			win_h;
 	int			max_point;
+	int			color;
 	float		scale;
 	float		xtrans;
 	float		ytrans;
@@ -74,8 +74,6 @@ typedef struct	s_env
 	float		mat[4][4];
 	t_arr		*map;
 	t_vertex	**points;
-	t_arr		*scaled;
-	t_ixyz		center;
 	t_keys		pressed;
 }				t_env;
 

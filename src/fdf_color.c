@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_color.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
+/*   Updated: 2017/05/17 19:03:34 by jkalia           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <fdf.h>
+
+int		set_color(t_env *env)
+{
+	int		color_num;
+
+	color_num = rand() % 10;
+	DEBUG("Color Num = %d", color_num);
+	if (color_num == 0)
+		env->color = 0x800080;
+	else if (color_num == 1)
+		env->color = 0xC0C0C0;
+	else if (color_num == 2)
+		env->color = 0xFF0000;
+	else if (color_num == 3)
+		env->color = 0x800000;
+	else if (color_num == 4)
+		env->color = 0xFFFF00;
+	else if (color_num == 5)
+		env->color = 0x008000;
+	else if (color_num == 6)
+		env->color = 0x00FFFF;
+	else if (color_num == 7)
+		env->color = 0x008080;
+	else if (color_num == 8)
+		env->color = 0xFF00FF;
+	else if (color_num == 9)
+		env->color = 0x008080;
+	return (0);
+}

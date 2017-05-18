@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 01:43:21 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:04:46 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int		key_press(int keycode, t_env *env)
 		env->az += 0.05;
 	if (keycode == KEY_E)
 		env->az -= 0.05;
+	if (keycode == KEY_C)
+		set_color(env);
 	if (keycode == KEY_SPACE)
 	{
 		init_mat(env);
@@ -56,7 +58,7 @@ int		key_release(int keycode, t_env *env)
 		mlx_destroy_window(env->mlx, env->win);
 		exit(0);
 	}
-	DEBUG("%{blue}Key Release: Keycode %d", keycode);
+	//DEBUG("%{blue}Key Release: Keycode %d", keycode);
 	return (0);
 }
 

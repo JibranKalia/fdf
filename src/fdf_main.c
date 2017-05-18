@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 01:38:51 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:02:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void			init_mat(t_env *env)
 	env->scale = (env->win_h / env->map_h) / 2;
 	env->xtrans = 5;
 	env->ytrans = 5;
+	env->color = 0x808080;
 }
 
 static int	init_env(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/15 17:03:14 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 13:55:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static int	read_point(t_arr *src, t_env *env)
 	int			i;
 	int			j;
 
+	DEBUG("read point");
 	env->map = arr_create(sizeof(t_vec3f), env->map_h * env->map_w);
 	MEMCHECK(env->map);
 	env->map->del = map_clean;
@@ -116,6 +117,7 @@ int			fdf_reader(t_env *env, int fd)
 	int		b;
 	t_arr	*file;
 
+	DEBUG("fdf reader");
 	file = arr_create(sizeof(char*), 100);
 	MEMCHECK(file);
 	file->del = file_clean;

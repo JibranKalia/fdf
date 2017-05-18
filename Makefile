@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/17 18:55:30 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/17 19:45:51 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ LIBFT		:= libft/libft.a
 LIBMLX		:= libmlx/libmlx.a
 LIBGFX		:= libgfx/libgfx.a
 
-FILES		+= fdf_main fdf_reader fdf_point fdf_key fdf_color
-#FILES		+= alloc_wrap
+FILES		+= fdf_main fdf_reader fdf_point fdf_key fdf_color fdf_draw fdf_func
 
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJ		:= $(SRC:.c=.o)

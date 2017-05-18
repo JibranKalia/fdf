@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:15:16 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:40:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # define INDEX(x, y) (((y) * env->map_w) + (x))
 
 int				fdf_reader(t_env *env, int fd);
-void			ft_perror(const char *s);
 void			set_pixel(int x, int y, t_env *env);
 void			puttoimg(t_env *env);
 void			scale(t_env *env);
@@ -39,4 +38,5 @@ void			init_mat(t_env *env);
 void			applyalligned(t_env *env);
 int				set_color(t_env *env);
 void			print_controls(void);
+int				reset_mat(t_env *env);
 #endif

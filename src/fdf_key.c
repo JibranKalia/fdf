@@ -6,13 +6,13 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:19:48 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:38:40 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-int		key_press(int keycode, t_env *env)
+static void	linesaver(int keycode, t_env *env)
 {
 	if (keycode == KEY_P)
 		env->scale += 1.1;
@@ -28,6 +28,11 @@ int		key_press(int keycode, t_env *env)
 		env->xtrans += 3;
 	if (keycode == KEY_W)
 		env->ax += 0.05;
+}
+
+int			key_press(int keycode, t_env *env)
+{
+	linesaver(keycode, env);
 	if (keycode == KEY_S)
 		env->ax -= 0.05;
 	if (keycode == KEY_A)
@@ -45,25 +50,24 @@ int		key_press(int keycode, t_env *env)
 		init_mat(env);
 		init_draw(env);
 	}
-	DEBUG("%{blue}Key Press: Keycode %d", keycode);
 	redraw(env);
 	return (0);
 }
 
-int		key_release(int keycode, t_env *env)
+int			key_release(int keycode, t_env *env)
 {
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(env->mlx, env->win);
 		exit(0);
 	}
-	//DEBUG("%{blue}Key Release: Keycode %d", keycode);
 	return (0);
 }
 
-int		key_exit(t_env *env)
+int			key_exit(t_env *env)
 {
 	(void)env;
 	DEBUG("Exit");
 	exit(0);
+	return (0);
 }

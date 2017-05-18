@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:15:42 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 19:47:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		set_color(t_env *env)
 {
-	int		color_num;
+	int color_num;
 
 	color_num = rand() % 10;
 	DEBUG("Color Num = %d", color_num);

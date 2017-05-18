@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 19:44:38 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:45:14 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/17 20:22:29 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void		scale(t_env *env)
 	if (env->scale == 0)
 		return ;
 	mat_scale(env->mat, env->scale, env->scale, env->scale);
-	mat_debug(env->mat);
 }
 
 void		rotate(t_env *env)

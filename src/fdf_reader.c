@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/18 14:40:31 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/21 16:53:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			fdf_reader(t_env *env, int fd)
 	int		b;
 	t_arr	*file;
 
-	file = arr_create(sizeof(char*), 10000);
+	file = arr_create(sizeof(char*), 100);
 	MEMCHECK(file);
 	file->del = file_clean;
 	env->map_h = 0;

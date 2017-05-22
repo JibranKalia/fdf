@@ -6,15 +6,16 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/05/18 14:04:50 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/05/21 17:00:59 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= fdf
 CC			:= gcc
-CFLAGS		+= -Wall -Wextra -Werror
+#CFLAGS		+= -Wall -Wextra -Werror
 CFLAGS		+= -I includes/ -I libft/includes/ -I libmlx
 CFLAGS		+= -I libgfx/includes/
+CFLAGS		+= -g
 LDFLAGS		:= -L libft/ -lft -L libmlx/ -lmlx -framework OpenGL -framework AppKit
 
 LIBFT		:= libft/libft.a
@@ -22,6 +23,8 @@ LIBMLX		:= libmlx/libmlx.a
 LIBGFX		:= libgfx/libgfx.a
 
 FILES		+= fdf_main fdf_reader fdf_point fdf_key fdf_color fdf_draw fdf_func
+FILES		+= alloc_wrap
+
 
 SRC		:= $(addprefix src/, $(addsuffix .c, $(FILES)))
 OBJ		:= $(SRC:.c=.o)

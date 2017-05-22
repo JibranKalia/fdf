@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/18 14:25:35 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/05/21 16:56:11 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			key_press(int keycode, t_env *env)
 	return (0);
 }
 
-static void	exit_cleanup(t_env *env)
+void	exit_cleanup(t_env *env)
 {
 	int		i;
 

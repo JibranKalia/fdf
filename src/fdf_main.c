@@ -6,25 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:46:32 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:54:11 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-void		init_mat(t_env *env)
-{
-	mat_id(env->mat);
-	env->ax = 0;
-	env->ay = 0;
-	env->az = 0;
-	env->scale = (env->win_h / env->map_h) / 2;
-	env->scale = 0.5;
-	env->xtrans = env->map_w / 2;
-	env->ytrans = env->map_h / 2;;
-	env->ztrans = 0;
-	env->color = 0x800080;
-}
 
 static int	init_env(t_env *env)
 {

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:46:23 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:55:33 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ void	world_to_aligned(t_env *env)
 
 	mat_id(global);
 	mat_rotate(global, env->ax, env->ay, env->az);
-//	mat_scale(global, env->scale / env->map_w,
-//						env->scale / env->map_h, env->scale);
 	mat_scale(global, (env->win_w * env->scale) / env->map_w,
 						(env->win_h * env->scale) / env->map_h, env->scale);
-	mat_translate(global, env->xtrans, env->ytrans, env->ztrans);
+	mat_translate(global, env->xtrans + env->win_w / 2,
+			env->ytrans + env->win_h / 2, env->ztrans);
 	i = -1;
 	while (++i < env->max_point)
 	{
@@ -80,4 +79,18 @@ void		draw_wireframe(t_env *env)
 		else
 			x++;
 	}
+}
+
+void		init_mat(t_env *env)
+{
+	mat_id(env->mat);
+	env->ax = 0;
+	env->ay = 0;
+	env->az = 0;
+	env->scale = (env->win_h / env->map_h) / 2;
+	env->scale = 0.8;
+	env->xtrans = 0;
+	env->ytrans = 0;
+	env->ztrans = 0;
+	env->color = 0x800080;
 }

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 05:53:20 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 08:49:27 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,6 @@ typedef struct	s_ixy
 	int			y;
 }				t_ixy;
 
-typedef struct	s_rgb
-{
-	float		r;
-	float		g;
-	float		b;
-}				t_rgb;
-
 typedef struct	s_vertex
 {
 	t_vec3f		*local;
@@ -83,6 +76,9 @@ typedef struct	s_env
 	int			win_h;
 	int			max_point;
 	int			color;
+	int			zmax;
+	int			zmin;
+	int			tmp;
 	float		scale;
 	float		xtrans;
 	float		ytrans;
@@ -94,7 +90,7 @@ typedef struct	s_env
 	t_vertex	**points;
 }				t_env;
 
-void			ft_putpixel(t_env *env, int x, int y);
+void			ft_putpixel(t_env *env, int x, int y, int z);
 void			ft_3d_draw(t_env *env, t_vec3f p0, t_vec3f p1);
 void			key_state(int keycode, t_env *env, int state);
 void			mat_id(float mat[4][4]);

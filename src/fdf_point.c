@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:49:08 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:16:10 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	local_to_world(t_env *env)
 	mat_id(global);
 	mat_translate(global, -(env->map_w / 2), -(env->map_h / 2), 0);
 	mat_scale(global, env->scale, env->scale, env->scale);
-
 	i = -1;
 	while (++i < env->max_point)
 	{
@@ -54,7 +53,7 @@ void	world_to_aligned(t_env *env)
 	}
 }
 
-void		draw_wireframe(t_env *env)
+void	draw_wireframe(t_env *env)
 {
 	int					x;
 	int					y;
@@ -81,7 +80,7 @@ void		draw_wireframe(t_env *env)
 	}
 }
 
-void		init_mat(t_env *env)
+void	init_mat(t_env *env)
 {
 	mat_id(env->mat);
 	env->ax = 0;

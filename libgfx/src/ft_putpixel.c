@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:58:21 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:47:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:17:03 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void		create_color_table(t_env *env)
 	while (++i < 50)
 	{
 		red[2] = (float)(red[0] * i) / 50 + (float)(red[1] * (50 - i)) / 50;
-		green[2] = (float)(green[0] * i) / 50 + (float)(green[1] * (50 - i)) / 50;
+		green[2] = (float)(green[0] * i) / 50
+			+ (float)(green[1] * (50 - i)) / 50;
 		blue[2] = (float)(blue[0] * i) / 50 + (float)(blue[1] * (50 - i)) / 50;
 		env->color[i] = (int)red[2] << 16 | (int)green[2] << 8 | (int)blue[2];
 	}

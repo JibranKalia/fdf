@@ -6,22 +6,19 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:28:00 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:13:46 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-
-int		random_color(void)
+int		random_color(int color_num)
 {
-	int color_num;
-	int	color;
+	int color;
 
 	color = 0;
-	color_num = rand() % 10;
 	if (color_num == 0)
-		 color = 0x800080;
+		color = 0x800080;
 	else if (color_num == 1)
 		color = 0xC0C0C0;
 	else if (color_num == 2)

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:30:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:28:14 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:17:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		drawline(t_env *env, t_ixyz src0, t_ixyz src1)
 	}
 }
 
-void		ft_3d_draw(t_env *env, t_vec3f p0, t_vec3f p1)
+void			ft_3d_draw(t_env *env, t_vec3f p0, t_vec3f p1)
 {
 	drawline(env, (t_ixyz){p0.x, p0.y, p0.z}, (t_ixyz){p1.x, p1.y, p1.z});
 }

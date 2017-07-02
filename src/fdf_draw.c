@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 19:32:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:53:05 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:15:27 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int			redraw(t_env *env)
 	mlx_destroy_image(env->mlx, env->img);
 	return (0);
 }
-
-
 
 int			draw(t_env *env)
 {

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:48:21 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:13:57 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				fdf_reader(t_env *env, int fd);
 ** FDF_COLOR
 */
 
-int				random_color(void);
+int				random_color(int color_num);
 void			print_controls(void);
 
 /*

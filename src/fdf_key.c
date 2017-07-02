@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:27:35 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:14:58 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static void	linesaver(int keycode, t_env *env)
 		env->xtrans += 3;
 	if (keycode == KEY_W)
 		env->ax += 0.05;
+	if (keycode == KEY_S)
+		env->ax -= 0.05;
+	if (keycode == KEY_A)
+		env->ay -= 0.05;
 }
 
 int			key_press(int keycode, t_env *env)
 {
 	linesaver(keycode, env);
-	if (keycode == KEY_S)
-		env->ax -= 0.05;
-	if (keycode == KEY_A)
-		env->ay -= 0.05;
 	if (keycode == KEY_D)
 		env->ay += 0.05;
 	if (keycode == KEY_Q)
@@ -46,8 +46,8 @@ int			key_press(int keycode, t_env *env)
 	if (keycode == KEY_C)
 	{
 		free(env->color);
-		env->color1 = random_color();
-		env->color2 = random_color();
+		env->color1 = random_color(rand() % 10);
+		env->color2 = random_color(rand() % 10);
 		create_color_table(env);
 	}
 	if (keycode == KEY_SPACE)

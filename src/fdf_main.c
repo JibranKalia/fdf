@@ -6,12 +6,11 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 09:23:40 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 10:10:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-
 
 static int	init_env(t_env *env)
 {

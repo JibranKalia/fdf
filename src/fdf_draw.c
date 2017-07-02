@@ -32,6 +32,8 @@ int			redraw(t_env *env)
 	return (0);
 }
 
+
+
 int			draw(t_env *env)
 {
 	local_to_world(env);

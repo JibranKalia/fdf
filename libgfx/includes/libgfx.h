@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 08:49:27 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 09:46:59 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ typedef struct	s_env
 	int			win_w;
 	int			win_h;
 	int			max_point;
-	int			color;
+	int			*color;
+	int			color1;
+	int			color2;
 	int			zmax;
 	int			zmin;
 	int			tmp;
@@ -90,17 +92,37 @@ typedef struct	s_env
 	t_vertex	**points;
 }				t_env;
 
-void			ft_putpixel(t_env *env, int x, int y, int z);
+/*
+** FT_PUTPIXEL
+*/
+
+void			ft_putpixel(t_env *env, int x, int y, float z);
+void			create_color_table(t_env *env);
+
+/*
+** DRAWLINE
+*/
+
 void			ft_3d_draw(t_env *env, t_vec3f p0, t_vec3f p1);
 void			key_state(int keycode, t_env *env, int state);
+
+/*
+** MATRIX MATH
+*/
+
 void			mat_id(float mat[4][4]);
 void			mat_debug(float mat[4][4]);
 void			mat_mult(float src1[4][4], float src2[4][4], float dst[4][4]);
 void			mat_translate(float dst[4][4], float x, float y, float z);
 void			mat_scale(float dst[4][4], float x, float y, float z);
-void			mat_rotate(float dst[4][4], float ax, float ay, float az);
-void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst);
 void			mat_bzero(float mat[4][4]);
 void			mat_copy(float src[4][4], float dst[4][4]);
+
+/*
+** MATRIX ROTATE
+*/
+
+void			mat_rotate(float dst[4][4], float ax, float ay, float az);
+void			vec_mat_mult(t_vec3f *src1, float src2[4][4], t_vec3f *dst);
 
 #endif

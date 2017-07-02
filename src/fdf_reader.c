@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 08:03:45 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 09:36:28 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ static int	get_zlimit(t_env *env)
 		env->zmax = MAX(env->zmax, env->points[i]->local->y);
 		env->zmin = MIN(env->zmin, env->points[i]->local->y);
 	}
-	DEBUG("Z Max = %d", env->zmax);
-	DEBUG("Z Min = %d", env->zmin);
 	return (0);
 }
 

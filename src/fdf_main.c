@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:57:33 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 09:23:40 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	init_env(t_env *env)
 	env->win = mlx_new_window(env->mlx, env->win_w, env->win_h, "42");
 	CHECK(!env->win, RETURN(-1), "Error: mlx_new_window");
 	init_mat(env);
+	create_color_table(env);
 	return (0);
 }
 

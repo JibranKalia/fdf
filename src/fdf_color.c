@@ -6,38 +6,41 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 08:49:42 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 09:28:00 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-int		set_color(t_env *env)
+
+int		random_color(void)
 {
 	int color_num;
+	int	color;
 
+	color = 0;
 	color_num = rand() % 10;
 	if (color_num == 0)
-		env->color = 0x800080;
+		 color = 0x800080;
 	else if (color_num == 1)
-		env->color = 0xC0C0C0;
+		color = 0xC0C0C0;
 	else if (color_num == 2)
-		env->color = 0xFF0000;
+		color = 0xFF0000;
 	else if (color_num == 3)
-		env->color = 0x800000;
+		color = 0x800000;
 	else if (color_num == 4)
-		env->color = 0xFFFF00;
+		color = 0xFFFF00;
 	else if (color_num == 5)
-		env->color = 0x008000;
+		color = 0x008000;
 	else if (color_num == 6)
-		env->color = 0x00FFFF;
+		color = 0x00FFFF;
 	else if (color_num == 7)
-		env->color = 0x008080;
+		color = 0x008080;
 	else if (color_num == 8)
-		env->color = 0xFF00FF;
+		color = 0xFF00FF;
 	else if (color_num == 9)
-		env->color = 0x008080;
-	return (0);
+		color = 0x008080;
+	return (color);
 }
 
 void	print_controls(void)

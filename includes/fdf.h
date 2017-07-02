@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 07:00:40 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 07:43:33 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 # include <libgfx.h>
 # define INDEX(x, y) (((y) * env->map_w) + (x))
 
+/*
+** FDF_READER
+*/
+
 int				fdf_reader(t_env *env, int fd);
-void			set_pixel(int x, int y, t_env *env);
-void			scale(t_env *env);
-void			translate(t_env *env);
-void			rotate(t_env *env);
-void			applypoint(t_env *env);
-int				key_press(int keycode, t_env *env);
-int				key_release(int keycode, t_env *env);
-int				key_exit(t_env *env);
+
+/*
+** FDF_COLOR
+*/
+
 int				set_color(t_env *env);
 void			print_controls(void);
 
@@ -51,4 +52,13 @@ int				draw(t_env *env);
 void			local_to_world(t_env *env);
 void			world_to_aligned(t_env *env);
 void			draw_wireframe(t_env *env);
+
+/*
+** FDF_KEY
+*/
+
+int				key_press(int keycode, t_env *env);
+int				key_release(int keycode, t_env *env);
+int				key_exit(t_env *env);
+
 #endif

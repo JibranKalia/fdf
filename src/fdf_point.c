@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 14:20:57 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 19:48:52 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/06/04 01:14:28 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,44 @@
 ** y = i/W
 ** x = i - Wy
 */
+
+void	local_to_world(t_env *env)
+{
+	float	global[4][4];
+	int		i;
+
+	mat_id(global);
+	mat_translate(global, -(env->map_w / 2), -(env->map_height / 2), 0);
+	mat_scale(global, env->scale, env->scale, env->scale);
+	i = -1;
+	while (++i < env->max_point)
+	{
+		vec_mat_mult(env->points[i]->local, env->global,
+				env->points[i]->world);
+	}
+}
+
+void	world_to_aligned(t_env *env)
+{
+	float	global[4][4];
+	int		i;
+
+	mat_id(global);
+	mat_rotate(global, env->ax, env->ay, env->az);
+	mat_scale(global, (*env->scale) / env->map_w,
+			(env->win_h * view->scale) / view->map_h, view->scale);
+	mat_translate(global, (view->project) ? view->x_shift :
+			view->x_shift + WIN_WIDTH / 2,
+			(view->project) ? view->y_shift : view->y_shift + WIN_HEIGHT / 2,
+			view->z_shift);
+
+	i = -1;
+	while (++i < env->max_point)
+	{
+		vec_mat_mult(env->points[i]->world, env->global,
+				env->points[i]->alligned);
+	}
+}
 
 void		applyalligned(t_env *env)
 {

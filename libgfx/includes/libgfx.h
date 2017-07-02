@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/18 14:15:02 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/06/04 01:07:43 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct	s_rgb
 typedef struct	s_vertex
 {
 	t_vec3f		*local;
+	t_vec3f		*world;
 	t_vec3f		*alligned;
 }				t_vertex;
 

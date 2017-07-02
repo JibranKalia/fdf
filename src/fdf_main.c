@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/06/04 01:02:20 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:31:04 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void		init_mat(t_env *env)
 {
 	mat_id(env->mat);
-	env->ax = 0.4;
-	env->ay = 0.1;
-	env->az = 0.1;
-	env->xtrans = (env->win_w / 2);
-	env->ytrans = (env->win_h / 2);
+	env->ax = 0;
+	env->ay = 0;
+	env->az = 0;
 	env->scale = (env->win_h / env->map_h) / 2;
-//	env->xtrans = 5;
-//	env->ytrans = 5;
+	env->scale = 1;
+	env->xtrans = 0;
+	env->ytrans = 0;
+	env->ztrans = 0;
 	env->color = 0x800080;
 }
 
@@ -38,6 +38,7 @@ static int	init_env(t_env *env)
 	return (0);
 }
 
+/**
 int			reset_mat(t_env *env)
 {
 	mat_id(env->mat);
@@ -51,6 +52,7 @@ int			reset_mat(t_env *env)
 	env->ytrans = 0;
 	return (0);
 }
+**/
 
 int			main(int ac, char **av)
 {
@@ -64,7 +66,7 @@ int			main(int ac, char **av)
 	CHK(fdf_reader(env, fd) == -1, -1);
 	CHECK(init_env(env) == -1, RETURN(-1), "ERROR: init_env");
 	MEMCHECK(env);
-	init_draw(env);
+	draw(env);
 	print_controls();
 	mlx_hook(env->win, 2, 0, key_press, env);
 	mlx_hook(env->win, 3, 0, key_release, env);

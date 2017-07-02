@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 19:32:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:09:59 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:28:37 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,16 @@ static int	new_img(t_env *env)
 int			redraw(t_env *env)
 {
 	new_img(env);
-	translate(env);
-	scale(env);
-	rotate(env);
-	applyalligned(env);
-	puttoimg(env);
-	reset_mat(env);
+	world_to_aligned(env);
+	draw_wireframe(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	mlx_destroy_image(env->mlx, env->img);
 	return (0);
 }
 
-int			init_draw(t_env *env)
+int			draw(t_env *env)
 {
-	new_img(env);
-	translate(env);
-	scale(env);
-	rotate(env);
-	applypoint(env);
-	puttoimg(env);
-	reset_mat(env);
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_destroy_image(env->mlx, env->img);
+	local_to_world(env);
+	redraw(env);
 	return (0);
 }

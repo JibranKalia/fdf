@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:34:37 by jkalia            #+#    #+#             */
-/*   Updated: 2017/06/04 01:07:43 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 05:53:20 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct	s_env
 	float		scale;
 	float		xtrans;
 	float		ytrans;
+	float		ztrans;
 	float		ax;
 	float		ay;
 	float		az;

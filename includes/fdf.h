@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/18 14:00:41 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:11:51 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 int				fdf_reader(t_env *env, int fd);
 void			set_pixel(int x, int y, t_env *env);
-void			puttoimg(t_env *env);
 void			scale(t_env *env);
 void			translate(t_env *env);
 void			rotate(t_env *env);
@@ -28,12 +27,28 @@ void			applypoint(t_env *env);
 int				key_press(int keycode, t_env *env);
 int				key_release(int keycode, t_env *env);
 int				key_exit(t_env *env);
-int				draw(t_env *env);
-int				redraw(t_env *env);
-int				init_draw(t_env *env);
-void			init_mat(t_env *env);
-void			applyalligned(t_env *env);
 int				set_color(t_env *env);
 void			print_controls(void);
+
+/*
+** FDF_MAIN
+*/
+
+void			init_mat(t_env *env);
 int				reset_mat(t_env *env);
+
+/*
+** FDF_DRAW
+*/
+
+int				redraw(t_env *env);
+int				draw(t_env *env);
+
+/*
+** FDF_POINT
+*/
+
+void			local_to_world(t_env *env);
+void			world_to_aligned(t_env *env);
+void			draw_wireframe(t_env *env);
 #endif

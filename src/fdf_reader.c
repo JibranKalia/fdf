@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/21 16:53:16 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:09:04 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	malloc_vertex(t_vertex ***tmp, t_env *env)
 		MEMCHECK(out[i]);
 		out[i]->local = ft_memalloc(sizeof(t_vec3f));
 		MEMCHECK(out[i]->local);
+		out[i]->world = ft_memalloc(sizeof(t_vec3f));
+		MEMCHECK(out[i]->world);
 		out[i]->alligned = ft_memalloc(sizeof(t_vec3f));
 		MEMCHECK(out[i]->alligned);
 	}

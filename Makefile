@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/23 14:12:11 by jkalia            #+#    #+#              #
-#*   Updated: 2017/07/02 06:56:19 by jkalia           ###   ########.fr       *#
+#*   Updated: 2017/07/02 09:02:39 by jkalia           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ fclean: clean
 	@echo "\033[32mRemoved FDF\033[0m"
 
 out:
-	make -C libgfx clean
+	make -C libgfx re
 	rm -rf $(OBJ) $(NAME)
 
 debug: out all

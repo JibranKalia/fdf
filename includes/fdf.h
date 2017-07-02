@@ -6,13 +6,13 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:36:31 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:34:27 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 07:00:40 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define WIN_WIDTH 800
+# define WIN_WIDTH 1200
 # define WIN_HEIGHT 800
 # include <fcntl.h>
 # include <libgfx.h>

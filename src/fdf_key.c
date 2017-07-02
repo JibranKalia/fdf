@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:48:45 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:57:55 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	exit_cleanup(t_env *env)
 	{
 		free(env->points[i]->local);
 		free(env->points[i]->alligned);
+		free(env->points[i]->world);
 		free(env->points[i]);
 	}
 	free(env->points);

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 18:35:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/05/17 20:34:21 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:59:22 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ int		set_color(t_env *env)
 
 void	print_controls(void)
 {
-	ft_putstr("w/s : rotate by x axis\n");
-	ft_putstr("a/d : rotate by y axis\n");
-	ft_putstr("q/e : rotate by z axis\n");
-	ft_putstr("c   : switch colors\n");
-	ft_putstr("ijkl: move around\n");
-	ft_putstr("n/m : size change\n");
-	ft_putstr("Esc : quit\n");
+	ft_putstr("w/s      : rotate by x axis\n");
+	ft_putstr("a/d      : rotate by y axis\n");
+	ft_putstr("q/e      : rotate by z axis\n");
+	ft_putstr("c        : switch colors\n");
+	ft_putstr("ijkl     : move around\n");
+	ft_putstr("n/m      : size change\n");
+	ft_putstr("Esc      : quit\n");
+	ft_putstr("Space    : reset\n");
 }

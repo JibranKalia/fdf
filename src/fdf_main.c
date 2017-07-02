@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 18:07:58 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:54:11 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 06:57:33 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,6 @@ static int	init_env(t_env *env)
 	init_mat(env);
 	return (0);
 }
-
-/**
-int			reset_mat(t_env *env)
-{
-	mat_id(env->mat);
-	env->ax = 0;
-	env->ay = 0;
-	env->az = 0;
-	env->xtrans = 0;
-	env->ytrans = 0;
-	env->scale = 0;
-	env->xtrans = 0;
-	env->ytrans = 0;
-	return (0);
-}
-**/
 
 int			main(int ac, char **av)
 {

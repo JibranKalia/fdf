@@ -6,11 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 10:20:09 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 06:09:04 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/02 08:03:45 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+#include <limits.h>
 
 /*
 ** i = Wx + y
@@ -74,6 +75,23 @@ static int	save_point(t_arr *src, t_env *env)
 	return (0);
 }
 
+static int	get_zlimit(t_env *env)
+{
+	int		i;
+
+	env->zmax = INT_MIN;
+	env->zmin = INT_MAX;
+	i = -1;
+	while (++i < env->max_point)
+	{
+		env->zmax = MAX(env->zmax, env->points[i]->local->y);
+		env->zmin = MIN(env->zmin, env->points[i]->local->y);
+	}
+	DEBUG("Z Max = %d", env->zmax);
+	DEBUG("Z Min = %d", env->zmin);
+	return (0);
+}
+
 int			fdf_reader(t_env *env, int fd)
 {
 	char	*line;
@@ -96,6 +114,7 @@ int			fdf_reader(t_env *env, int fd)
 	}
 	env->max_point = env->map_h * env->map_w;
 	CHK(save_point(file, env) == -1, -1);
+	get_zlimit(env);
 	arr_del(file);
 	return (0);
 }

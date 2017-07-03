@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 20:27:49 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/02 10:14:58 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/03 07:06:47 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ int			key_release(int keycode, t_env *env)
 int			key_exit(t_env *env)
 {
 	(void)env;
-	DEBUG("Exit");
 	exit(0);
 	return (0);
 }
